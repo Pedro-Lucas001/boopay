@@ -1,0 +1,39 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Merchant {
+  id                    Int       @id @default(autoincrement())
+  nome                  String
+  razao_social          String
+  email                 String    @unique
+  status                String    @default("ativo")
+  consumer_key          String
+  consumer_secretHash   String
+  data_criacao          DateTime  @default(now())
+  data_atualizacao      DateTime  @updatedAt
+
+  produtos              Product[]
+}
+
+model Product {
+  id               Int       @id @default(autoincrement())
+  sku_woocommerce  String    @unique
+  nome             String
+  descricao        String?
+  preco            Decimal
+  estoque          Int       @default(0)
+  url_loja_origem  String
+  status           String    @default("ativo")
+  data_criacao     DateTime  @default(now())
+  data_atualizacao DateTime  @updatedAt
+
+  merchant_id      Int
+  merchant         Merchant  @relation(fields: [merchant_id], references: [id])
+}
