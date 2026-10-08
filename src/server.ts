@@ -1,4 +1,3 @@
-// src/server.ts
 import Fastify from 'fastify';
 import { boopayRoutes } from './http/routes';
 
