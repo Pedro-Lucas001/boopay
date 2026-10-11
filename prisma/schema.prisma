@@ -20,6 +20,34 @@ model Merchant {
   data_atualizacao      DateTime  @updatedAt
 
   produtos              Product[]
+  connectionCodes       ConnectionCode[]
+  integrations          Integration[]
+}
+
+model ConnectionCode {
+  id          String   @id @default(uuid())
+  codeHash    String   @unique
+  tenantId    String
+  merchantId  Int
+  storeUrl    String
+  expiresAt   DateTime
+  usedAt      DateTime?
+  createdAt   DateTime @default(now())
+  merchant    Merchant @relation(fields: [merchantId], references: [id])
+  @@index([expiresAt])
+}
+
+model Integration {
+  id              String    @id @default(uuid())
+  tenantId        String
+  merchantId      Int
+  storeUrl        String
+  tokenHash       String    @unique
+  encryptedSecret String
+  revokedAt       DateTime?
+  createdAt       DateTime  @default(now())
+  merchant        Merchant  @relation(fields: [merchantId], references: [id])
+  @@index([tenantId, merchantId])
 }
 
 model Product {
