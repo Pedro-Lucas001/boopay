@@ -1,5 +1,5 @@
 import { FastifyInstance } from 'fastify';
-import { z } from 'zod';
+import { syncCatalogSchema } from './catalog-contract';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
@@ -12,17 +12,6 @@ export async function boopayRoutes(app: FastifyInstance) {
   });
 
   // [RB-005] Contrato Zod para validação do payload enviado pelo plugin
-  const syncCatalogSchema = z.object({
-    merchant_id: z.number(),
-    items: z.array(z.object({
-      action: z.enum(['upsert', 'delete']), 
-      sku_woocommerce: z.string(),
-      nome: z.string().optional(),
-      preco: z.coerce.number().optional(),
-      estoque: z.number().optional(),
-      url_loja_origem: z.string().url().optional()
-    }))
-  });
 
   // [RB-015] Rota de atualizações e exclusões incrementais (POST /v1/admin/catalog/sync)
   app.post('/v1/admin/catalog/sync', async (request, reply) => {
