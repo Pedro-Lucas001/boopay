@@ -36,7 +36,8 @@ export async function verifySignedRequest(request: FastifyRequest, credentials: 
   await credentials.db.replayNonce.deleteMany({ where: { expiresAt: { lt: now } } });
   try {
     await credentials.db.replayNonce.create({ data: {
-      id: hashToken(integration.id + ':' + nonce), expiresAt: new Date(now.getTime() + 301_000)
+      // Inclui 300 s de desvio futuro e 300 s de validade restante.
+      id: hashToken(integration.id + ':' + nonce), expiresAt: new Date(now.getTime() + 601_000)
     } });
   } catch (error) {
     if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2002')
