@@ -13,7 +13,9 @@
     "check:docs": "node scripts/check-docs.mjs",
     "check": "npm run build && npm run check:js && npm run check:php && npm run check:docs && npm test",
     "db:generate": "prisma generate",
-    "db:migrate": "prisma migrate deploy"
+    "db:migrate": "prisma migrate deploy",
+    "qa:plugin": "node scripts/qa-plugin.mjs",
+    "qa:evidence": "node scripts/record-backend-evidence.mjs"
   },
   "keywords": [],
   "author": "",

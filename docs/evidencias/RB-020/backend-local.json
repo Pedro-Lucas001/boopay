@@ -1,0 +1,40 @@
+{
+  "recordedAt": "2026-10-11T02:26:31.423Z",
+  "platform": "win32",
+  "node": "v24.18.0",
+  "codeBaseCommit": "82ca4e87a29dda5c686110c67a2ea279c02e1fe2",
+  "scope": "Backend local e cliente PHP isolado. Não valida plugin instalado, loja limpa, rede WordPress nem HPOS.",
+  "passed": true,
+  "results": [
+    {
+      "name": "compilacao",
+      "command": "node node_modules/typescript/bin/tsc --noEmit",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "name": "javascript",
+      "command": "node scripts/check-javascript.mjs",
+      "exitCode": 0,
+      "output": "JavaScript: 5 arquivos verificados.\n"
+    },
+    {
+      "name": "php",
+      "command": "node scripts/check-php.mjs",
+      "exitCode": 0,
+      "output": "No syntax errors detected in integrations\\woocommerce\\class-boopay-signed-http-client.php\nNo syntax errors detected in tests\\php-client.test.php\nNo syntax errors detected in tests\\php-signature.php\nPASS: destinos não permitidos rejeitados antes do transporte\nPASS: timeout, redirects e TLS\nPASS: assinatura do corpo exato\nPASS: nonce novo por tentativa\nPASS: erro de transporte sem vazamento\nPASS: erro HTTP sem corpo remoto\n6 grupos de verificações PHP passaram; funções WordPress substituídas, sem instalação real.\n"
+    },
+    {
+      "name": "documentacao",
+      "command": "node scripts/check-docs.mjs",
+      "exitCode": 0,
+      "output": "Documentação: 93 arquivos, links relativos válidos.\n"
+    },
+    {
+      "name": "testes",
+      "command": "node --import tsx --test tests/contracts.test.ts tests/credentials.test.ts tests/logging.test.ts tests/signed-request.test.ts",
+      "exitCode": 0,
+      "output": "✔ contrato aceita lote vazio e operações previstas (2.2676ms)\n✔ contrato rejeita operação desconhecida e payload incompleto (0.2972ms)\n✔ conexão: expiração, vínculo, uso único concorrente, persistência e revogação (10256.3758ms)\n✔ logs de request não registram tokens, assinatura ou código do corpo (230.0422ms)\n✔ assinatura PHP e Node usam o mesmo vetor de bytes (52.4315ms)\n✔ HTTP assinado: autenticação, corpo/tempo/vínculo, replay e isolamento de SKU (11067.1752ms)\nℹ tests 6\nℹ suites 0\nℹ pass 6\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 11520.122\n"
+    }
+  ]
+}

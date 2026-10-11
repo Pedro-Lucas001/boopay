@@ -1,0 +1,21 @@
+{
+  "recordedAt": "2026-10-11T02:25:53.136Z",
+  "sha256": null,
+  "environment": null,
+  "checks": [
+    {
+      "id": "zip-presente",
+      "status": "bloqueado",
+      "note": "ZIP do plugin do sprint não fornecido."
+    },
+    {
+      "id": "versoes",
+      "status": "bloqueado",
+      "note": "Versões e ambiente de loja limpa não fornecidos."
+    }
+  ],
+  "acceptance": "PENDENTE",
+  "pluginInstalled": false,
+  "hposValidated": false,
+  "note": "Preflight não instala nem executa o plugin. P01–P17 devem ser executados e revisados na loja."
+}
