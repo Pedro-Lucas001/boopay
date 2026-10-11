@@ -14,4 +14,8 @@ if (!files.length) {
     if (result.error) { console.error('PHP não disponível. Configure PHP_BINARY ou instale PHP.'); process.exit(1); }
     if (result.status !== 0) process.exit(1);
   }
+  for (const file of files.filter(file => file.endsWith('.test.php'))) {
+    const result = spawnSync(process.env.PHP_BINARY || 'php', [file], { stdio: 'inherit' });
+    if (result.status !== 0) process.exit(1);
+  }
 }

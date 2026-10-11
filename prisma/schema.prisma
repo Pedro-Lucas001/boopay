@@ -50,6 +50,12 @@ model Integration {
   @@index([tenantId, merchantId])
 }
 
+model ReplayNonce {
+  id        String   @id
+  expiresAt DateTime
+  @@index([expiresAt])
+}
+
 model Product {
   id               Int       @id @default(autoincrement())
   sku_woocommerce  String    @unique
