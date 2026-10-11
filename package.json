@@ -5,7 +5,15 @@
   "main": "index.js",
   
   "scripts": {
-    "dev": "tsx watch src/server.ts"
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc --noEmit",
+    "test": "tsx --test tests/*.test.ts",
+    "check:js": "node scripts/check-javascript.mjs",
+    "check:php": "node scripts/check-php.mjs",
+    "check:docs": "node scripts/check-docs.mjs",
+    "check": "npm run build && npm run check:js && npm run check:php && npm run check:docs && npm test",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate deploy"
   },
   "keywords": [],
   "author": "",
