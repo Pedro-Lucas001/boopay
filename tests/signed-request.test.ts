@@ -58,6 +58,14 @@ test('HTTP assinado: autenticação, corpo/tempo/vínculo, replay e isolamento d
     const collision = make();
     const concurrent = await Promise.all([app.inject(collision), app.inject(collision)]);
     assert.deepEqual(concurrent.map(r => r.statusCode).sort(), [200, 409]);
+    const initialTime = clock.getTime();
+    clock.setTime(initialTime + 300_000);
+    const futureTimestamp = make();
+    clock.setTime(initialTime);
+    assert.equal((await app.inject(futureTimestamp)).statusCode, 200);
+    clock.setTime(initialTime + 302_000);
+    assert.equal((await app.inject(futureTimestamp)).statusCode, 409);
+    clock.setTime(initialTime);
     assert.equal((await app.inject(make(JSON.stringify({ merchant_id: b.id, items: [] })))).statusCode, 403);
     await db.product.create({ data: { sku_woocommerce: 'FOREIGN-SKU', nome: 'Loja B', preco: 10,
       estoque: 1, url_loja_origem: 'https://b.example', merchant_id: b.id } });

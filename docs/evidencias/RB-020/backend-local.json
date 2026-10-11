@@ -1,8 +1,8 @@
 {
-  "recordedAt": "2026-10-11T02:26:31.423Z",
+  "recordedAt": "2026-10-11T02:37:38.332Z",
   "platform": "win32",
   "node": "v24.18.0",
-  "codeBaseCommit": "82ca4e87a29dda5c686110c67a2ea279c02e1fe2",
+  "codeBaseCommit": "ba650828aa65f4673f6be3cf52ad513077fdb040",
   "scope": "Backend local e cliente PHP isolado. Não valida plugin instalado, loja limpa, rede WordPress nem HPOS.",
   "passed": true,
   "results": [
@@ -34,7 +34,7 @@
       "name": "testes",
       "command": "node --import tsx --test tests/contracts.test.ts tests/credentials.test.ts tests/logging.test.ts tests/signed-request.test.ts",
       "exitCode": 0,
-      "output": "✔ contrato aceita lote vazio e operações previstas (2.2676ms)\n✔ contrato rejeita operação desconhecida e payload incompleto (0.2972ms)\n✔ conexão: expiração, vínculo, uso único concorrente, persistência e revogação (10256.3758ms)\n✔ logs de request não registram tokens, assinatura ou código do corpo (230.0422ms)\n✔ assinatura PHP e Node usam o mesmo vetor de bytes (52.4315ms)\n✔ HTTP assinado: autenticação, corpo/tempo/vínculo, replay e isolamento de SKU (11067.1752ms)\nℹ tests 6\nℹ suites 0\nℹ pass 6\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 11520.122\n"
+      "output": "✔ contrato aceita lote vazio e operações previstas (2.935ms)\n✔ contrato rejeita operação desconhecida e payload incompleto (0.3659ms)\n✔ conexão: expiração, vínculo, uso único concorrente, persistência e revogação (10364.3779ms)\n✔ logs de request não registram tokens, assinatura ou código do corpo (229.64ms)\n✔ assinatura PHP e Node usam o mesmo vetor de bytes (66.1607ms)\n✔ HTTP assinado: autenticação, corpo/tempo/vínculo, replay e isolamento de SKU (11417.1988ms)\nℹ tests 6\nℹ suites 0\nℹ pass 6\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 11957.972\n"
     }
   ]
 }
