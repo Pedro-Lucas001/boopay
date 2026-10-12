@@ -58,7 +58,9 @@ final class Boopay_Tracking {
     public static function assets(): void {
         if (!self::enabled() || is_admin()) return;
         wp_enqueue_script('boopay-tracking',plugins_url('assets/tracking.js',BOOPAY_PLUGIN_FILE),[], '0.1.0',true);
-        wp_localize_script('boopay-tracking','boopayTracking',['base'=>rest_url('boopay/v1/'),'nonce'=>wp_create_nonce('wp_rest'),
-            'consented'=>(bool)self::session(),'productId'=>is_product()?(int)get_queried_object_id():null]);
+        // wp_localize_script converte escalares em strings: preservar booleano e ID numérico.
+        $config=['base'=>rest_url('boopay/v1/'),'nonce'=>wp_create_nonce('wp_rest'),
+            'consented'=>(bool)self::session(),'productId'=>is_product()?(int)get_queried_object_id():null];
+        wp_add_inline_script('boopay-tracking','window.boopayTracking = '.wp_json_encode($config,JSON_HEX_TAG|JSON_HEX_AMP|JSON_HEX_APOS|JSON_HEX_QUOT).';','before');
     }
 }
