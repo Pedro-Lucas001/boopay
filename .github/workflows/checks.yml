@@ -31,8 +31,26 @@ jobs:
           retention-days: 14
   wordpress:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        database: [sqlite, mysql]
+    services:
+      mysql:
+        image: mysql:8.4
+        env:
+          MYSQL_ROOT_PASSWORD: boopay-ci-disposable
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h localhost -pboopay-ci-disposable"
+          --health-interval=10s --health-timeout=5s --health-retries=10
     env:
       BOOPAY_QA_ROOT: ${{ github.workspace }}/.test-artifacts/wordpress-qa
+      BOOPAY_QA_DB: ${{ matrix.database }}
+      BOOPAY_QA_MYSQL_HOST: 127.0.0.1:3306
+      BOOPAY_QA_MYSQL_USER: root
+      BOOPAY_QA_MYSQL_PASSWORD: boopay-ci-disposable
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -42,7 +60,7 @@ jobs:
       - uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
-          extensions: curl, openssl, mbstring, pdo_sqlite, sqlite3, zip, fileinfo
+          extensions: curl, openssl, mbstring, mysqli, pdo_sqlite, sqlite3, zip, fileinfo
           coverage: none
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: npm run db:generate
@@ -53,6 +71,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: wordpress-qa
+          name: wordpress-qa-${{ matrix.database }}
           path: docs/evidencias/WORDPRESS/results.json
           retention-days: 14

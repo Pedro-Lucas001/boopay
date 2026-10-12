@@ -1,0 +1,271 @@
+- navigation "Main menu":
+  - link "Skip to main content":
+    - /url: "#wpbody-content"
+  - link "Skip to toolbar":
+    - /url: "#wp-toolbar"
+  - list:
+    - link "Dashboard":
+      - /url: index.php
+      - generic: 
+      - generic: Dashboard
+    - list:
+      - link "Home":
+        - /url: index.php
+      - link "Updates 5":
+        - /url: update-core.php
+        - text: Updates
+        - generic: "5"
+    - link "Posts":
+      - /url: edit.php
+      - generic: 
+      - generic: Posts
+    - list:
+      - link "All Posts":
+        - /url: edit.php
+      - link "Add Post":
+        - /url: post-new.php
+      - link "Categories":
+        - /url: edit-tags.php?taxonomy=category
+      - link "Tags":
+        - /url: edit-tags.php?taxonomy=post_tag
+    - link "Media":
+      - /url: upload.php
+      - generic: 
+      - generic: Media
+    - list:
+      - link "Library":
+        - /url: upload.php
+      - link "Add Media File":
+        - /url: media-new.php
+    - link "Pages":
+      - /url: edit.php?post_type=page
+      - generic: 
+      - generic: Pages
+    - list:
+      - link "All Pages":
+        - /url: edit.php?post_type=page
+      - link "Add Page":
+        - /url: post-new.php?post_type=page
+    - link "Comments":
+      - /url: edit-comments.php
+      - generic: 
+      - generic: Comments
+    - link "WooCommerce":
+      - /url: admin.php?page=wc-admin
+      - generic: WooCommerce
+    - list:
+      - link "Home 6":
+        - /url: admin.php?page=wc-admin
+        - text: Home
+        - generic: "6"
+      - link "Orders":
+        - /url: admin.php?page=wc-orders
+      - link "BooPay":
+        - /url: admin.php?page=boopay
+      - link "Customers":
+        - /url: admin.php?page=wc-admin&path=/customers
+      - link "Coupons":
+        - /url: admin.php?page=coupons-moved
+      - link "Reports":
+        - /url: admin.php?page=wc-reports
+      - link "Settings":
+        - /url: admin.php?page=wc-settings
+      - link "Status":
+        - /url: admin.php?page=wc-status
+      - link "Extensions":
+        - /url: admin.php?page=wc-admin&path=/extensions
+    - link "Products":
+      - /url: edit.php?post_type=product
+      - generic: 
+      - generic: Products
+    - list:
+      - link "All Products":
+        - /url: edit.php?post_type=product
+      - link "Add new product":
+        - /url: post-new.php?post_type=product
+      - link "Brands":
+        - /url: edit-tags.php?taxonomy=product_brand&post_type=product
+      - link "Categories":
+        - /url: edit-tags.php?taxonomy=product_cat&post_type=product
+      - link "Tags":
+        - /url: edit-tags.php?taxonomy=product_tag&post_type=product
+      - link "Attributes":
+        - /url: edit.php?post_type=product&page=product_attributes
+      - link "Reviews":
+        - /url: edit.php?post_type=product&page=product-reviews
+    - link "Payments 1":
+      - /url: admin.php?page=wc-settings&tab=checkout&from=PAYMENTS_MENU_ITEM
+      - text: Payments
+      - generic: "1"
+    - link "Analytics":
+      - /url: admin.php?page=wc-admin&path=/analytics/overview
+      - generic: 
+      - generic: Analytics
+    - list:
+      - link "Overview":
+        - /url: admin.php?page=wc-admin&path=/analytics/overview
+      - link "Products":
+        - /url: admin.php?page=wc-admin&path=/analytics/products
+      - link "Revenue":
+        - /url: admin.php?page=wc-admin&path=/analytics/revenue
+      - link "Orders":
+        - /url: admin.php?page=wc-admin&path=/analytics/orders
+      - link "Variations":
+        - /url: admin.php?page=wc-admin&path=/analytics/variations
+      - link "Categories":
+        - /url: admin.php?page=wc-admin&path=/analytics/categories
+      - link "Coupons":
+        - /url: admin.php?page=wc-admin&path=/analytics/coupons
+      - link "Taxes":
+        - /url: admin.php?page=wc-admin&path=/analytics/taxes
+      - link "Downloads":
+        - /url: admin.php?page=wc-admin&path=/analytics/downloads
+      - link "Stock":
+        - /url: admin.php?page=wc-admin&path=/analytics/stock
+      - link "Settings":
+        - /url: admin.php?page=wc-admin&path=/analytics/settings
+    - link "Marketing":
+      - /url: admin.php?page=wc-admin&path=/marketing
+      - generic: 
+      - generic: Marketing
+    - list:
+      - link "Overview":
+        - /url: admin.php?page=wc-admin&path=/marketing
+      - link "Coupons":
+        - /url: edit.php?post_type=shop_coupon
+    - link "Appearance":
+      - /url: themes.php
+      - generic: 
+      - generic: Appearance
+    - list:
+      - link "Themes 3":
+        - /url: themes.php
+        - text: Themes
+        - generic: "3"
+      - link "Editor":
+        - /url: site-editor.php
+    - link "Plugins 1":
+      - /url: plugins.php
+      - generic: 
+      - text: Plugins
+      - generic: "1"
+    - list:
+      - link "Installed Plugins":
+        - /url: plugins.php
+      - link "Add Plugin":
+        - /url: plugin-install.php
+    - link "Users":
+      - /url: users.php
+      - generic: 
+      - generic: Users
+    - list:
+      - link "All Users":
+        - /url: users.php
+      - link "Add User":
+        - /url: user-new.php
+      - link "Profile":
+        - /url: profile.php
+    - link "Tools":
+      - /url: tools.php
+      - generic: 
+      - generic: Tools
+    - list:
+      - link "Available Tools":
+        - /url: tools.php
+      - link "Import":
+        - /url: import.php
+      - link "Export":
+        - /url: export.php
+      - link "Site Health":
+        - /url: site-health.php
+      - link "Export Personal Data":
+        - /url: export-personal-data.php
+      - link "Erase Personal Data":
+        - /url: erase-personal-data.php
+      - link "Scheduled Actions":
+        - /url: tools.php?page=action-scheduler
+      - link "Theme File Editor":
+        - /url: theme-editor.php
+      - link "Plugin File Editor":
+        - /url: plugin-editor.php
+    - link "Settings":
+      - /url: options-general.php
+      - generic: 
+      - generic: Settings
+    - list:
+      - link "General":
+        - /url: options-general.php
+      - link "Writing":
+        - /url: options-writing.php
+      - link "Reading":
+        - /url: options-reading.php
+      - link "Discussion":
+        - /url: options-discussion.php
+      - link "Media":
+        - /url: options-media.php
+      - link "Permalinks":
+        - /url: options-permalink.php
+      - link "Privacy":
+        - /url: options-privacy.php
+    - button "Collapse Main menu" [expanded]:
+      - generic: 
+      - generic: Collapse Menu
+- navigation "Toolbar":
+  - menu:
+    - menuitem "About WordPress":
+      - generic: 
+      - generic: About WordPress
+    - menuitem " BooPay — QA visual"
+    - menuitem "Store coming soon"
+    - menuitem "5 updates available":
+      - generic: 
+      - generic: "5"
+      - generic: 5 updates available
+    - menuitem "0 Comments in moderation":
+      - generic: 
+      - generic: "0"
+      - generic: 0 Comments in moderation
+    - menuitem "New":
+      - generic: 
+      - generic: New
+  - menu:
+    - menuitem "Howdy, qa_admin"
+- main:
+  - link "WordPress 7.1.3":
+    - /url: https://wordpress.org/documentation/wordpress-version/version-7-1-3/
+  - text: is available!
+  - link "Please update WordPress now":
+    - /url: http://localhost:8089/wp-admin/update-core.php
+    - text: Please update now
+  - text: .
+  - heading "BooPay" [level=1]
+  - paragraph: Configure HTTPS na loja antes de conectar.
+  - paragraph: Sincronize o catálogo e acompanhe a conexão da sua loja.
+  - heading "Desconectado" [level=2]
+  - paragraph:
+    - text: URL da API
+    - textbox "URL da API":
+      - /placeholder: https://api.sua-organizacao.com
+      - text: https://api.boopay.localtest.me:8443
+  - paragraph:
+    - text: Código temporário
+    - textbox "Código temporário"
+  - paragraph: O código vale cinco minutos e uma tentativa de pareamento.
+  - button "Conectar"
+  - heading "Sincronização" [level=2]
+  - generic: "{ \"cursor\": 0, \"state\": \"idle\" }"
+  - heading "Último envio" [level=2]
+  - generic: "{ \"state\": \"delivered\", \"attempt\": 0, \"time\": \"2026-10-12T17:26:45+00:00\" }"
+  - heading "Saúde" [level=2]
+  - generic: "[]"
+- contentinfo:
+  - paragraph:
+    - text: Thank you for creating with
+    - link "WordPress":
+      - /url: https://wordpress.org/
+    - text: .
+  - paragraph:
+    - strong:
+      - link "Get Version 7.1.3":
+        - /url: http://localhost:8089/wp-admin/update-core.php
+- text: 

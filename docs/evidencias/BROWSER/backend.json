@@ -1,0 +1,41 @@
+{
+  "events": 5,
+  "types": [
+    {
+      "_count": 1,
+      "kind": "add_to_cart"
+    },
+    {
+      "_count": 4,
+      "kind": "view"
+    }
+  ],
+  "items": [
+    {
+      "kind": "view",
+      "productId": null,
+      "receivedAt": "2026-10-12T17:36:20.955Z"
+    },
+    {
+      "kind": "view",
+      "productId": null,
+      "receivedAt": "2026-10-12T17:37:03.437Z"
+    },
+    {
+      "kind": "view",
+      "productId": 11,
+      "receivedAt": "2026-10-12T17:37:05.222Z"
+    },
+    {
+      "kind": "add_to_cart",
+      "productId": 11,
+      "receivedAt": "2026-10-12T17:37:05.454Z"
+    },
+    {
+      "kind": "view",
+      "productId": 11,
+      "receivedAt": "2026-10-12T17:37:05.720Z"
+    }
+  ],
+  "revoked": 0
+}

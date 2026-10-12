@@ -1,14 +1,17 @@
-import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from 'node:fs';
+import { writeFileSync, mkdirSync, copyFileSync, existsSync } from 'node:fs';
 import { resolve, join } from 'node:path';
 import { randomBytes } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 const root=resolve(process.env.BOOPAY_QA_ROOT||'.test-artifacts/wordpress-qa'),wp=join(root,'wordpress');
 const php=process.env.PHP_BINARY||'php', args=process.env.BOOPAY_QA_PHP_INI?['-c',process.env.BOOPAY_QA_PHP_INI]:[];
 mkdirSync(join(root,'database'),{recursive:true});
-copyFileSync(join(wp,'wp-content/plugins/sqlite-database-integration/db.copy'),join(wp,'wp-content/db.php'));
+const mysql=process.env.BOOPAY_QA_DB==='mysql';
+if(mysql && existsSync(join(wp,'wp-content/db.php')))throw new Error('Use um BOOPAY_QA_ROOT novo para MySQL; não substituir drop-in existente.');
+if(!mysql)copyFileSync(join(wp,'wp-content/plugins/sqlite-database-integration/db.copy'),join(wp,'wp-content/db.php'));
 const quote=value=>"'"+value.replaceAll('\\','/').replaceAll("'","\\'")+"'";
 let config="<?php\n";
-const values={DB_NAME:'demo',DB_USER:'demo',DB_PASSWORD:'',DB_HOST:'localhost',DB_CHARSET:'utf8',DB_COLLATE:'',
+const values={DB_NAME:mysql?'boopay_qa_initial':'demo',DB_USER:mysql?(process.env.BOOPAY_QA_MYSQL_USER||'root'):'demo',
+  DB_PASSWORD:mysql?(process.env.BOOPAY_QA_MYSQL_PASSWORD||''):'',DB_HOST:mysql?(process.env.BOOPAY_QA_MYSQL_HOST||'127.0.0.1:3306'):'localhost',DB_CHARSET:'utf8',DB_COLLATE:'',
   DB_DIR:join(root,'database')+'/',DB_FILE:'wordpress.sqlite',WP_HOME:'https://store.example',WP_SITEURL:'https://store.example'};
 for(const [key,value] of Object.entries(values))config+=`define('${key}',${quote(value)});\n`;
 for(const key of ['AUTH_KEY','SECURE_AUTH_KEY','LOGGED_IN_KEY','NONCE_KEY','AUTH_SALT','SECURE_AUTH_SALT','LOGGED_IN_SALT','NONCE_SALT'])config+=`define('${key}','${randomBytes(32).toString('hex')}');\n`;
@@ -23,6 +26,14 @@ file_put_contents($root.'/cert.pem',$pem); file_put_contents($root.'/key.pem',$p
 `);
 writeFileSync(join(root,'setup.php'),`<?php
 $_SERVER['HTTP_HOST']='store.example';$_SERVER['HTTPS']='on';define('WP_INSTALLING',true);
+if(getenv('BOOPAY_QA_DB')==='mysql'){
+    $name=getenv('BOOPAY_QA_MYSQL_DATABASE');
+    if(!preg_match('/^boopay_qa_[0-9]+$/',$name))throw new RuntimeException('Nome de banco QA inválido.');
+    $host=explode(':',getenv('BOOPAY_QA_MYSQL_HOST')?:'127.0.0.1:3306');
+    $connection=new mysqli($host[0],getenv('BOOPAY_QA_MYSQL_USER')?:'root',getenv('BOOPAY_QA_MYSQL_PASSWORD')?:'',null,(int)($host[1]??3306));
+    $connection->query('CREATE DATABASE '.$name.' CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci');
+    $connection->close();
+}
 require __DIR__.'/wordpress/wp-load.php';require_once ABSPATH.'wp-admin/includes/upgrade.php';
 if(!is_blog_installed())wp_install('BooPay QA','qa_admin','qa@example.invalid',false,'',bin2hex(random_bytes(24)));
 require_once ABSPATH.'wp-admin/includes/plugin.php';$result=activate_plugin('woocommerce/woocommerce.php');

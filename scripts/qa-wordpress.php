@@ -86,6 +86,13 @@ verify(Boopay_Tracking::queue('view',$variable->get_id()),'Evento consentido enf
 $health=Boopay_Plugin::client()->send('/v1/integrations/health',(object)[]); $data=json_decode(wp_remote_retrieve_body($health),true);
 verify(($data['last_event']['kind']??'')==='view','Saúde consulta evento persistido sem edição do banco');
 $cart_product=new WC_Product_Simple();$cart_product->set_name('Evento sintético');$cart_product->set_status('publish');$cart_product->set_regular_price('7.00');$cart_product->save();drain();
+// Configuração real emitida pelo WordPress: localização de traduções altera tipos escalares.
+$previous_query=$GLOBALS['wp_query'];$GLOBALS['wp_query']=new WP_Query(['post_type'=>'product','p'=>$cart_product->get_id()]);
+Boopay_Tracking::assets();$inline=wp_scripts()->get_data('boopay-tracking','before');
+$configuration=json_decode(substr(end($inline),strlen('window.boopayTracking = '),-1),true);
+verify(($configuration['consented']??null)===true,'Configuração JS preserva consentimento booleano');
+verify(($configuration['productId']??null)===$cart_product->get_id(),'Configuração JS preserva ID de produto numérico');
+$GLOBALS['wp_query']=$previous_query;
 wc_load_cart();verify((bool)WC()->cart->add_to_cart($cart_product->get_id()),'Adição real ao carrinho gera hook consentido');drain();
 $health=Boopay_Plugin::client()->send('/v1/integrations/health',(object)[]);verify(json_decode(wp_remote_retrieve_body($health),true)['last_event']['kind']==='add_to_cart','add_to_cart recebido na API');
 verify(Boopay_Tracking::queue('exit_intent',null),'exit_intent consentido enfileirado');drain();
@@ -118,7 +125,8 @@ $before=count(jobs()); Boopay_Catalog::changed($variable->get_id()); verify(coun
 deactivate_plugins('boopay/boopay.php'); verify(!Boopay_Plugin::credentials(),'Desativação segura');
 uninstall_plugin('boopay/boopay.php'); verify(get_option('boopay_api',null)===null,'Desinstalação remove configurações');
 update_option('active_plugins',['boopay/boopay.php']); // Próximo processo valida guarda sem WooCommerce.
-$report=['date'=>gmdate('c'),'wordpress'=>$GLOBALS['wp_version'],'woocommerce'=>WC_VERSION,'php'=>PHP_VERSION,'database'=>'SQLite adapter (not MySQL qualification)',
+$report=['date'=>gmdate('c'),'wordpress'=>$GLOBALS['wp_version'],'woocommerce'=>WC_VERSION,'php'=>PHP_VERSION,
+    'database'=>getenv('BOOPAY_QA_DB')==='mysql'?'MySQL '.$wpdb->db_version():'SQLite adapter (not MySQL qualification)',
     'tls'=>'HTTPS real, CA local provided only to QA HTTP requests; sslverify true','timeout_seconds'=>round($elapsed,2),'checks'=>$checks,'human_review'=>'pending'];
 file_put_contents(getenv('BOOPAY_QA_REPORT'),wp_json_encode($report,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE));
 echo count($checks).' verificações WordPress concluídas.';
