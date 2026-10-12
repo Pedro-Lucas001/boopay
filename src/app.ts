@@ -19,7 +19,7 @@ export function buildApp(options: { db: PrismaClient; credentialKey: string; adm
     parseJson(request, body.toString('utf8'), done);
   });
   app.addHook('preHandler', async request => {
-    if (request.routeOptions.url === '/v1/admin/catalog/sync')
+    if (['/v1/admin/catalog/sync', '/v1/events', '/v1/integrations/health'].includes(request.routeOptions.url || ''))
       await verifySignedRequest(request, credentials);
   });
   app.setErrorHandler((error, request, reply) => {
