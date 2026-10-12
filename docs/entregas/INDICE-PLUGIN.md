@@ -20,6 +20,6 @@ Use este índice junto ao quadro `label:m1-woocommerce`. Responsáveis originais
 
 ## Ordem de revisão
 
-PR #86 já integrado. #87 (aceite) e #88 (conexão) têm base main. Depois #89 (assinatura), #92 (API completa), #93 (plugin) e PR de empacotamento/QA. Este último reúne e atualiza os resultados antes parciais de #90/#91; os PRs anteriores devem apontar para o sucessor, sem afirmar aceite ou merge.
+PR #86 já integrado. #87 (aceite) e #88 (conexão) têm base main. Depois #89 (assinatura), #92 (API completa), #93 (plugin) e #94 (empacotamento/QA). #90/#91 foram encerrados como substituídos por #94, sem merge. Todos os PRs ativos continuam aguardando revisão humana. Os jobs `validate` e `wordpress` passaram na [CI da entrega](https://github.com/Pedro-Lucas001/boopay/actions/runs/38281186583).
 
 Revisar, integrar pela ordem e executar novamente na main integrada. Só então, com revisão e critérios atendidos, mover os cards para Feito. Pedro RB-005/RB-015: o código original da main era parcial; complementações precisam ser revisadas, por isso a revisão não aprovou Feito.
