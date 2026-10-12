@@ -23,3 +23,36 @@ jobs:
       - run: npm run check
         env:
           DATABASE_URL: file:./test.db
+      - run: npm run package:plugin
+      - uses: actions/upload-artifact@v4
+        with:
+          name: boopay-plugin-0.1.0
+          path: dist/boopay-0.1.0.*
+          retention-days: 14
+  wordpress:
+    runs-on: ubuntu-latest
+    env:
+      BOOPAY_QA_ROOT: ${{ github.workspace }}/.test-artifacts/wordpress-qa
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: curl, openssl, mbstring, pdo_sqlite, sqlite3, zip, fileinfo
+          coverage: none
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: npm run db:generate
+      - shell: pwsh
+        run: ./scripts/setup-wordpress-qa.ps1
+      - run: npm run package:plugin
+      - run: npm run qa:wordpress
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wordpress-qa
+          path: docs/evidencias/WORDPRESS/results.json
+          retention-days: 14

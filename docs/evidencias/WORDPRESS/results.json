@@ -1,0 +1,435 @@
+{
+  "date": "2026-10-12T16:55:10+00:00",
+  "wordpress": "6.8.3",
+  "woocommerce": "10.2.2",
+  "php": "8.3.35",
+  "database": "SQLite adapter (not MySQL qualification)",
+  "tls": "HTTPS real, CA local provided only to QA HTTP requests; sslverify true",
+  "timeout_seconds": 10.01,
+  "checks": [
+    {
+      "case": "ZIP aberto pelo instalador PHP",
+      "passed": true
+    },
+    {
+      "case": "Plugin instalado e ativado sem fatal",
+      "passed": true
+    },
+    {
+      "case": "Administrador pode configurar",
+      "passed": true
+    },
+    {
+      "case": "Tracking desligado por padrão",
+      "passed": true
+    },
+    {
+      "case": "Pareamento HTTPS real com CA verificada",
+      "passed": true
+    },
+    {
+      "case": "Código temporário não persistido",
+      "passed": true
+    },
+    {
+      "case": "Tela administrativa sem segredos",
+      "passed": true
+    },
+    {
+      "case": "Usuário sem capacidade não recebe tela",
+      "passed": true
+    },
+    {
+      "case": "Loja vazia encerra com sucesso",
+      "passed": true
+    },
+    {
+      "case": "Simples e variável recebidos na API por hooks reais",
+      "passed": true
+    },
+    {
+      "case": "Preço e estoque alterados",
+      "passed": true
+    },
+    {
+      "case": "Imagem HTTPS preservada no snapshot",
+      "passed": true
+    },
+    {
+      "case": "Remoção da última variação gera snapshot vazio",
+      "passed": true
+    },
+    {
+      "case": "Exclusão incremental recebida",
+      "passed": true
+    },
+    {
+      "case": "Catálogo com 22 produtos paginado pelo runner real",
+      "passed": true
+    },
+    {
+      "case": "Todas as páginas recebidas sem duplicação",
+      "passed": true
+    },
+    {
+      "case": "Sem consentimento não há evento",
+      "passed": true
+    },
+    {
+      "case": "Tracking habilitado ainda exige consentimento",
+      "passed": true
+    },
+    {
+      "case": "Consentimento exige origem e nonce válidos",
+      "passed": true
+    },
+    {
+      "case": "Consentimento explícito aceito pela rota WordPress",
+      "passed": true
+    },
+    {
+      "case": "Origem externa recusada",
+      "passed": true
+    },
+    {
+      "case": "Evento consentido enfileirado",
+      "passed": true
+    },
+    {
+      "case": "Saúde consulta evento persistido sem edição do banco",
+      "passed": true
+    },
+    {
+      "case": "Adição real ao carrinho gera hook consentido",
+      "passed": true
+    },
+    {
+      "case": "add_to_cart recebido na API",
+      "passed": true
+    },
+    {
+      "case": "exit_intent consentido enfileirado",
+      "passed": true
+    },
+    {
+      "case": "exit_intent recebido na API",
+      "passed": true
+    },
+    {
+      "case": "Revogação interrompe novos eventos",
+      "passed": true
+    },
+    {
+      "case": "Timeout real de dez segundos encerra transporte",
+      "passed": true
+    },
+    {
+      "case": "Falha temporária agenda retentativa",
+      "passed": true
+    },
+    {
+      "case": "Retentativa inspecionável no Action Scheduler",
+      "passed": true
+    },
+    {
+      "case": "Limite de cinco tentativas",
+      "passed": true
+    },
+    {
+      "case": "Diagnóstico não expõe erro remoto",
+      "passed": true
+    },
+    {
+      "case": "Repetição manual recupera fila",
+      "passed": true
+    },
+    {
+      "case": "400 permanente não entra em loop",
+      "passed": true
+    },
+    {
+      "case": "HPOS habilitado no ambiente",
+      "passed": true
+    },
+    {
+      "case": "Desconexão revoga credencial pela API",
+      "passed": true
+    },
+    {
+      "case": "Desconexão apaga credenciais/jobs",
+      "passed": true
+    },
+    {
+      "case": "Nenhum novo envio após desconexão",
+      "passed": true
+    },
+    {
+      "case": "Desativação segura",
+      "passed": true
+    },
+    {
+      "case": "Desinstalação remove configurações",
+      "passed": true
+    },
+    {
+      "case": "WooCommerce ausente: aviso sem fatal em processo separado",
+      "passed": true
+    }
+  ],
+  "human_review": "pending",
+  "backend": {
+    "products": [
+      {
+        "source_id": 10,
+        "deleted": true,
+        "snapshot": {
+          "action": "delete",
+          "source_id": 10,
+          "revision": 17
+        }
+      },
+      {
+        "source_id": 11,
+        "deleted": false,
+        "snapshot": {
+          "action": "upsert",
+          "source_id": 11,
+          "revision": 60,
+          "sku": "",
+          "name": "Caneca sintética",
+          "type": "variable",
+          "price": "29.90",
+          "stock": null,
+          "in_stock": true,
+          "url": "https://store.example/?product=caneca-sintetica",
+          "images": [],
+          "variations": []
+        }
+      },
+      {
+        "source_id": 14,
+        "deleted": true,
+        "snapshot": {
+          "action": "delete",
+          "source_id": 14,
+          "revision": 82
+        }
+      },
+      {
+        "source_id": 15,
+        "deleted": true,
+        "snapshot": {
+          "action": "delete",
+          "source_id": 15,
+          "revision": 83
+        }
+      },
+      {
+        "source_id": 16,
+        "deleted": true,
+        "snapshot": {
+          "action": "delete",
+          "source_id": 16,
+          "revision": 84
+        }
+      },
+      {
+        "source_id": 17,
+        "deleted": true,
+        "snapshot": {
+          "action": "delete",
+          "source_id": 17,
+          "revision": 85
+        }
+      },
+      {
+        "source_id": 18,
+        "deleted": true,
+        "snapshot": {
+          "action": "delete",
+          "source_id": 18,
+          "revision": 86
+        }
+      },
+      {
+        "source_id": 19,
+        "deleted": true,
+        "snapshot": {
+          "action": "delete",
+          "source_id": 19,
+          "revision": 87
+        }
+      },
+      {
+        "source_id": 20,
+        "deleted": true,
+        "snapshot": {
+          "action": "delete",
+          "source_id": 20,
+          "revision": 88
+        }
+      },
+      {
+        "source_id": 21,
+        "deleted": true,
+        "snapshot": {
+          "action": "delete",
+          "source_id": 21,
+          "revision": 89
+        }
+      },
+      {
+        "source_id": 22,
+        "deleted": true,
+        "snapshot": {
+          "action": "delete",
+          "source_id": 22,
+          "revision": 90
+        }
+      },
+      {
+        "source_id": 23,
+        "deleted": true,
+        "snapshot": {
+          "action": "delete",
+          "source_id": 23,
+          "revision": 91
+        }
+      },
+      {
+        "source_id": 24,
+        "deleted": true,
+        "snapshot": {
+          "action": "delete",
+          "source_id": 24,
+          "revision": 92
+        }
+      },
+      {
+        "source_id": 25,
+        "deleted": true,
+        "snapshot": {
+          "action": "delete",
+          "source_id": 25,
+          "revision": 93
+        }
+      },
+      {
+        "source_id": 26,
+        "deleted": true,
+        "snapshot": {
+          "action": "delete",
+          "source_id": 26,
+          "revision": 94
+        }
+      },
+      {
+        "source_id": 27,
+        "deleted": true,
+        "snapshot": {
+          "action": "delete",
+          "source_id": 27,
+          "revision": 95
+        }
+      },
+      {
+        "source_id": 28,
+        "deleted": true,
+        "snapshot": {
+          "action": "delete",
+          "source_id": 28,
+          "revision": 96
+        }
+      },
+      {
+        "source_id": 29,
+        "deleted": true,
+        "snapshot": {
+          "action": "delete",
+          "source_id": 29,
+          "revision": 97
+        }
+      },
+      {
+        "source_id": 30,
+        "deleted": true,
+        "snapshot": {
+          "action": "delete",
+          "source_id": 30,
+          "revision": 98
+        }
+      },
+      {
+        "source_id": 31,
+        "deleted": true,
+        "snapshot": {
+          "action": "delete",
+          "source_id": 31,
+          "revision": 99
+        }
+      },
+      {
+        "source_id": 32,
+        "deleted": true,
+        "snapshot": {
+          "action": "delete",
+          "source_id": 32,
+          "revision": 100
+        }
+      },
+      {
+        "source_id": 33,
+        "deleted": true,
+        "snapshot": {
+          "action": "delete",
+          "source_id": 33,
+          "revision": 101
+        }
+      },
+      {
+        "source_id": 34,
+        "deleted": true,
+        "snapshot": {
+          "action": "delete",
+          "source_id": 34,
+          "revision": 102
+        }
+      },
+      {
+        "source_id": 35,
+        "deleted": false,
+        "snapshot": {
+          "action": "upsert",
+          "source_id": 35,
+          "revision": 104,
+          "sku": "",
+          "name": "Evento sintético",
+          "type": "simple",
+          "price": "7.00",
+          "stock": null,
+          "in_stock": true,
+          "url": "https://store.example/?product=evento-sintetico",
+          "images": [],
+          "variations": []
+        }
+      }
+    ],
+    "events": 3,
+    "revoked": 1
+  },
+  "package": {
+    "version": "0.1.0",
+    "sha256": "180492792120b0951ca279393352042c2781d350312773ee6136ebbc555e206b",
+    "bytes": 35423,
+    "files": [
+      "boopay/assets/tracking.js",
+      "boopay/boopay.php",
+      "boopay/includes/class-boopay-catalog.php",
+      "boopay/includes/class-boopay-plugin.php",
+      "boopay/includes/class-boopay-signed-http-client.php",
+      "boopay/includes/class-boopay-tracking.php",
+      "boopay/readme.txt",
+      "boopay/uninstall.php"
+    ]
+  }
+}

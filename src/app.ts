@@ -6,9 +6,9 @@ import { connectionRoutes } from './http/connection-routes';
 import { AccessError, CredentialService } from './security/credentials';
 import { verifySignedRequest } from './security/signed-request';
 
-export function buildApp(options: { db: PrismaClient; credentialKey: string; adminToken: string; logger?: boolean; now?: () => Date }) {
+export function buildApp(options: { db: PrismaClient; credentialKey: string; adminToken: string; logger?: boolean; logStream?: { write(message: string): void }; now?: () => Date }) {
   const app = Fastify({
-    logger: options.logger ? { redact: ['req.headers.authorization', 'req.headers.x-boopay-signature'] } : false,
+    logger: options.logger ? { redact: ['req.headers.authorization', 'req.headers.x-boopay-signature'], stream: options.logStream } : false,
     bodyLimit: 1024 * 1024
   });
   const credentials = new CredentialService(options.db, options.credentialKey, options.now);
