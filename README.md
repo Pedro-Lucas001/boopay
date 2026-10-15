@@ -2,6 +2,26 @@
 
 Repositório de desenvolvimento do MVP do Boopay. Este é o tutorial padrão do time: use o mesmo roteiro em todas as tarefas, desde assumir uma issue até entregar e receber revisão.
 
+## Planejamento e acordos do time
+
+Entrega final: **04/11/2026**; versão integrada, testes, documentação e pacote prontos até **03/11**, America/Fortaleza. O plano contém **83 tarefas na entrega** e **2 futuras**; datas/contagens não comprovam capacidade ou conclusão.
+
+- [Visão e objetivo do produto](docs/visao-produto.md)
+- [Time, responsabilidades, acessos e acordo de trabalho](docs/acordo-trabalho.md)
+- [Histórias, habilitadores e ligação das 85 tarefas](docs/backlog.md)
+- [Definition of Done compartilhada](docs/definition-of-done.md)
+- [Sprints, objetivos, planejamento, Review e Retrospectiva](docs/sprints/README.md)
+- [Uso de IA: ferramenta, apoio, adaptações e limites](docs/uso-ia.md)
+
+| Período | Meta | Quadro |
+| --- | --- | --- |
+| 14–20/10 | Fundação integrada e base multiloja — 40 tarefas, incluindo 22 do plugin em revisão | [S1](https://github.com/users/Pedro-Lucas001/projects/2/views/8) |
+| 21–27/10 | Compra conversacional em sandbox — 20 tarefas | [S2](https://github.com/users/Pedro-Lucas001/projects/2/views/9) |
+| 28/10–03/11 | Produto completo, CDP, multitoque, QA, documentos e pacote — 21 tarefas | [S3](https://github.com/users/Pedro-Lucas001/projects/2/views/10) |
+| 04/11 | Submissão/comprovante e contribuições — 2 tarefas | [Entrega](https://github.com/users/Pedro-Lucas001/projects/2/views/11) |
+
+Cada integrante confirma sua disponibilidade na planning. Uma história descreve necessidade/benefício; task descreve trabalho; RFC registra proposta/decisão técnica; critério de aceite verifica a tarefa/história; DoD define qualidade comum. O JSON em `docs/planejamento/backlog.json` registra o mapa, sem criar ou importar issues automaticamente.
+
 ## Acessos do time
 
 - [Quadro — execução do MVP](https://github.com/users/Pedro-Lucas001/projects/2/views/1)
@@ -27,7 +47,7 @@ Cada integrante escreve a documentação da própria entrega. Pedro Lucas, Conce
 
 Cada uma das 85 issues RB-001 a RB-085 tem uma proposta em `docs/rfcs/RB-XXX.md`. Encontre a sua no [índice de RFCs](docs/rfcs/README.md). Confira a abordagem, os critérios, as dependências e o plano de validação. Registre dúvidas na issue e combine a revisão das decisões com o revisor.
 
-Todas começam como **Proposta — aguardando revisão**. Aprovar uma RFC não significa concluir a implementação. Atualize a decisão no documento, execute a tarefa e anexe evidências reais antes de mover o card para Done. Para um PR que só altera a proposta, use `Refs #NUMERO`; reserve `Closes #NUMERO` para o PR que cumpre integralmente o aceite.
+Confira o status registrado em cada RFC: algumas propostas já têm decisão de escopo atualizada, com a abordagem técnica ainda aguardando revisão. Aprovar uma RFC não significa concluir a implementação. Atualize a decisão no documento, execute a tarefa e anexe evidências reais antes de mover o card para Done. Para um PR que só altera a proposta, use `Refs #NUMERO`; reserve `Closes #NUMERO` para o PR que cumpre integralmente o aceite.
 
 ## Antes da primeira tarefa — faça uma única vez
 
@@ -251,7 +271,7 @@ Depois da integração ou aprovação:
 3. Se houver falha ou pendência dentro do escopo, trate antes de concluir.
 4. Feche a issue, se ainda estiver aberta, e mova o card para **Done** quando a entrega estiver aceita.
 
-**Checklist de conclusão:**
+**Checklist de conclusão:** aplicar também a [Definition of Done compartilhada](docs/definition-of-done.md).
 
 - [ ] Todos os critérios de aceite conferidos e atendidos.
 - [ ] Documentação e evidências acessíveis ao time.

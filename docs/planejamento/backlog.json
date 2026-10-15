@@ -1,0 +1,963 @@
+{
+  "versao": 1,
+  "data": "2026-10-14",
+  "repositorio": "Pedro-Lucas001/boopay",
+  "project": "https://github.com/users/Pedro-Lucas001/projects/2",
+  "prazo": "2026-11-04",
+  "estado": "Planejamento para revisao; nao comprova implementacao ou aceite",
+  "contagens": {
+    "1": 40,
+    "2": 20,
+    "3": 21,
+    "4": 2,
+    "future": 2
+  },
+  "grupos": [
+    {
+      "id": "US-01",
+      "tipo": "historia_usuario",
+      "titulo": "Conectar WooCommerce e disponibilizar catálogo/eventos",
+      "descricao": "Como lojista, quero conectar minha loja WooCommerce ao Boopay para disponibilizar catálogo e eventos ao agente.",
+      "criterios": [
+        "Conexão/desconexão autorizada e credenciais protegidas.",
+        "Catálogo inicial e alterações sincronizados sem duplicar dados.",
+        "Eventos com consentimento e diagnóstico de falhas verificáveis.",
+        "Instalação limpa, pacote e roteiro de demonstração reproduzíveis."
+      ]
+    },
+    {
+      "id": "HAB-01",
+      "tipo": "habilitador",
+      "titulo": "Fundação de dados, contratos e observabilidade",
+      "descricao": "Habilitador técnico: preparar persistência, identidade, APIs e diagnóstico que sustentam a jornada.",
+      "criterios": [
+        "Contratos e fontes de verdade documentados.",
+        "Dados e APIs isolados por loja e protegidos por autorização.",
+        "Estado, métricas e falhas rastreáveis com testes pertinentes."
+      ]
+    },
+    {
+      "id": "US-02",
+      "tipo": "historia_usuario",
+      "titulo": "Operar lojas com contexto e isolamento",
+      "descricao": "Como operador autorizado, quero configurar e acessar minhas lojas separadamente para administrar cada operação sem misturar seus dados.",
+      "criterios": [
+        "Duas lojas de teste com configuração e credenciais independentes.",
+        "Navegação e conexão da loja com estados compreensíveis.",
+        "Troca de contexto autorizada e testes negativos de leitura/escrita entre lojas."
+      ]
+    },
+    {
+      "id": "US-03",
+      "tipo": "historia_usuario",
+      "titulo": "Integrar Shopify e VTEX",
+      "descricao": "Como lojista, quero conectar Shopify ou VTEX para usar catálogo, cotação e pedidos autorizados na jornada do Boopay.",
+      "criterios": [
+        "Catálogo/eventos sincronizados no ambiente autorizado de cada plataforma.",
+        "Cotação e pedido usam dados autoritativos e operações idempotentes.",
+        "Versões, permissões e limitações demonstradas; acesso ausente registrado como bloqueio."
+      ]
+    },
+    {
+      "id": "US-04",
+      "tipo": "historia_usuario",
+      "titulo": "Preparar catálogo para descoberta",
+      "descricao": "Como lojista, quero verificar a prontidão e publicar os feeds previstos para tornar meu catálogo utilizável na descoberta por agentes.",
+      "criterios": [
+        "Prontidão identifica dados ausentes e problemas de qualidade.",
+        "GEO/feeds usam dados rastreáveis e contratos versionados.",
+        "Validação distingue disponibilização técnica de aprovação externa."
+      ]
+    },
+    {
+      "id": "US-05",
+      "tipo": "historia_usuario",
+      "titulo": "Receber recomendações pelo agente",
+      "descricao": "Como comprador, quero conversar com o agente e receber recomendações baseadas no catálogo para escolher um produto adequado.",
+      "criterios": [
+        "GPT/Gemini usam contratos estruturados e catálogo recuperado.",
+        "Recomendação não inventa produto, preço ou condição comercial.",
+        "Interface permite conversar, revisar a seleção e entender falhas."
+      ]
+    },
+    {
+      "id": "US-06",
+      "tipo": "historia_usuario",
+      "titulo": "Confirmar e concluir compra em sandbox",
+      "descricao": "Como comprador, quero revisar e confirmar minha compra para concluir um pagamento de teste e acompanhar o pedido correto.",
+      "criterios": [
+        "Cotação autoritativa e confirmação explícita antes da operação.",
+        "Pagamento de teste, pedido e reconciliação rastreáveis.",
+        "Retentativa/callback repetido não duplica cobrança ou pedido.",
+        "Carteira/interface de teste identifica claramente o ambiente sandbox."
+      ]
+    },
+    {
+      "id": "US-07",
+      "tipo": "historia_usuario",
+      "titulo": "Usar contratos de comércio com agentes",
+      "descricao": "Como integrador, quero contratos ACP/UCP verificáveis para conectar a jornada do Boopay a clientes de agentes compatíveis.",
+      "criterios": [
+        "Contratos e versões aplicadas documentados.",
+        "Fluxos locais/sandbox e falhas pertinentes reproduzíveis.",
+        "Adaptador local não é apresentado como publicação oficial no ChatGPT/Gemini."
+      ]
+    },
+    {
+      "id": "US-08",
+      "tipo": "historia_usuario",
+      "titulo": "Consultar perfil e atribuir resultados à jornada",
+      "descricao": "Como lojista, quero consultar perfis e comparar os contatos que levaram à compra para compreender a jornada e os resultados da minha loja.",
+      "criterios": [
+        "Perfil 360/CDP com identidade determinística autorizada, linhagem e exclusão.",
+        "Dashboards de receita, carrinho, produtos e qualidade/custo de IA com dados rastreáveis.",
+        "Atribuição primeiro toque, último toque e linear sem duplicar receita.",
+        "Consentimento e isolamento entre lojas validados; sem WhatsApp."
+      ]
+    },
+    {
+      "id": "HAB-02",
+      "tipo": "habilitador",
+      "titulo": "Qualidade integrada e recuperação",
+      "descricao": "Habilitador de qualidade: verificar a jornada completa, falhas, segurança e experiência antes da liberação.",
+      "criterios": [
+        "E2E integrado com resultados esperados e observados.",
+        "Falhas, concorrência, isolamento e idempotência cobertos.",
+        "Problemas críticos resolvidos e verificações de UX/acessibilidade registradas."
+      ]
+    },
+    {
+      "id": "HAB-03",
+      "tipo": "habilitador",
+      "titulo": "Documentação, apresentação e entrega",
+      "descricao": "Habilitador de entrega: consolidar documentos, evidências, custos, ensaios e submissão verificável.",
+      "criterios": [
+        "Pacote e documentação reproduzidos em ambiente novo até 03/11.",
+        "Slides, dois ensaios e plano B registrados quando realizados.",
+        "Canal/horário/formato confirmados por fonte oficial em #17.",
+        "Comprovante real e contribuições registrados após a entrega."
+      ]
+    },
+    {
+      "id": "US-09",
+      "tipo": "historia_usuario",
+      "titulo": "Planos e cobrança SaaS — futuro",
+      "descricao": "Como responsável pelo produto, quero especificar planos e cobrança SaaS para avaliar a futura comercialização da plataforma.",
+      "criterios": [
+        "Modelo comercial e limites propostos com hipóteses identificadas.",
+        "Dependências e critérios de entrada documentados.",
+        "Permanece fora do compromisso de 04/11."
+      ]
+    },
+    {
+      "id": "US-10",
+      "tipo": "historia_usuario",
+      "titulo": "Publicação oficial em superfícies de agentes — futuro",
+      "descricao": "Como responsável pelo produto, quero mapear homologação/publicação oficial para planejar a disponibilização autorizada em superfícies de agentes.",
+      "criterios": [
+        "Requisitos de cada provedor registrados com fonte e data.",
+        "Distinguir testes, solicitação e aprovação efetiva.",
+        "Permanece fora do compromisso de 04/11."
+      ]
+    }
+  ],
+  "tarefas": [
+    {
+      "number": 1,
+      "title": "[RB-001] Definir critérios de aceite do plugin WooCommerce",
+      "code": "RB-001",
+      "sprint": "1",
+      "assignees": [
+        "ThiagoVenturaV"
+      ],
+      "grupo": "US-01"
+    },
+    {
+      "number": 2,
+      "title": "[RB-002] Preparar fluxo de contribuição e verificações do repositório",
+      "code": "RB-002",
+      "sprint": "1",
+      "assignees": [
+        "ThiagoVenturaV"
+      ],
+      "grupo": "US-01"
+    },
+    {
+      "number": 58,
+      "title": "[RB-003] Criar índice e modelo de documentação",
+      "code": "RB-003",
+      "sprint": "1",
+      "assignees": [
+        "mluisacarvalho"
+      ],
+      "grupo": "US-01"
+    },
+    {
+      "number": 22,
+      "title": "[RB-004] Preparar loja limpa e backend mínimo de desenvolvimento",
+      "code": "RB-004",
+      "sprint": "1",
+      "assignees": [],
+      "grupo": "US-01"
+    },
+    {
+      "number": 36,
+      "title": "[RB-005] Definir contrato versionado plugin–API e exemplos",
+      "code": "RB-005",
+      "sprint": "1",
+      "assignees": [
+        "Pedro-Lucas001"
+      ],
+      "grupo": "US-01"
+    },
+    {
+      "number": 47,
+      "title": "[RB-006] Modelar lojas, integrações, catálogo e eventos",
+      "code": "RB-006",
+      "sprint": "1",
+      "assignees": [
+        "cesab-ino"
+      ],
+      "grupo": "US-01"
+    },
+    {
+      "number": 59,
+      "title": "[RB-007] Criar persistência mínima e fixtures de integração",
+      "code": "RB-007",
+      "sprint": "1",
+      "assignees": [
+        "mluisacarvalho"
+      ],
+      "grupo": "US-01"
+    },
+    {
+      "number": 23,
+      "title": "[RB-008] Criar estrutura do plugin e ciclo de ativação",
+      "code": "RB-008",
+      "sprint": "1",
+      "assignees": [],
+      "grupo": "US-01"
+    },
+    {
+      "number": 68,
+      "title": "[RB-009] Desenhar configuração e estados do plugin nativo",
+      "code": "RB-009",
+      "sprint": "1",
+      "assignees": [],
+      "grupo": "US-01"
+    },
+    {
+      "number": 77,
+      "title": "[RB-010] Implementar a tela administrativa do plugin",
+      "code": "RB-010",
+      "sprint": "1",
+      "assignees": [],
+      "grupo": "US-01"
+    },
+    {
+      "number": 3,
+      "title": "[RB-011] Implementar conexão e credenciais no backend mínimo",
+      "code": "RB-011",
+      "sprint": "1",
+      "assignees": [
+        "ThiagoVenturaV"
+      ],
+      "grupo": "US-01"
+    },
+    {
+      "number": 24,
+      "title": "[RB-012] Implementar conexão e desconexão no plugin",
+      "code": "RB-012",
+      "sprint": "1",
+      "assignees": [],
+      "grupo": "US-01"
+    },
+    {
+      "number": 4,
+      "title": "[RB-013] Implementar cliente HTTP assinado e validação da API",
+      "code": "RB-013",
+      "sprint": "1",
+      "assignees": [
+        "ThiagoVenturaV"
+      ],
+      "grupo": "US-01"
+    },
+    {
+      "number": 25,
+      "title": "[RB-014] Implementar sincronização inicial paginada do catálogo",
+      "code": "RB-014",
+      "sprint": "1",
+      "assignees": [],
+      "grupo": "US-01"
+    },
+    {
+      "number": 37,
+      "title": "[RB-015] Implementar atualizações e exclusões incrementais",
+      "code": "RB-015",
+      "sprint": "1",
+      "assignees": [
+        "Pedro-Lucas001"
+      ],
+      "grupo": "US-01"
+    },
+    {
+      "number": 48,
+      "title": "[RB-016] Implementar ingestão idempotente do catálogo",
+      "code": "RB-016",
+      "sprint": "1",
+      "assignees": [
+        "cesab-ino"
+      ],
+      "grupo": "US-01"
+    },
+    {
+      "number": 26,
+      "title": "[RB-017] Implementar fila, retentativas e logs sanitizados",
+      "code": "RB-017",
+      "sprint": "1",
+      "assignees": [],
+      "grupo": "US-01"
+    },
+    {
+      "number": 78,
+      "title": "[RB-018] Implementar eventos de vitrine com consentimento",
+      "code": "RB-018",
+      "sprint": "1",
+      "assignees": [],
+      "grupo": "US-01"
+    },
+    {
+      "number": 60,
+      "title": "[RB-019] Implementar receptor de eventos e consulta de saúde",
+      "code": "RB-019",
+      "sprint": "1",
+      "assignees": [
+        "mluisacarvalho"
+      ],
+      "grupo": "US-01"
+    },
+    {
+      "number": 5,
+      "title": "[RB-020] Validar plugin em instalação limpa, HPOS e falhas",
+      "code": "RB-020",
+      "sprint": "1",
+      "assignees": [
+        "ThiagoVenturaV"
+      ],
+      "grupo": "US-01"
+    },
+    {
+      "number": 49,
+      "title": "[RB-021] Empacotar ZIP e revisar guia de instalação do plugin",
+      "code": "RB-021",
+      "sprint": "1",
+      "assignees": [
+        "cesab-ino"
+      ],
+      "grupo": "US-01"
+    },
+    {
+      "number": 6,
+      "title": "[RB-022] Preparar demonstração e evidências do plugin WooCommerce",
+      "code": "RB-022",
+      "sprint": "1",
+      "assignees": [
+        "ThiagoVenturaV"
+      ],
+      "grupo": "US-01"
+    },
+    {
+      "number": 7,
+      "title": "[RB-023] Registrar arquitetura e decisões do desenvolvimento",
+      "code": "RB-023",
+      "sprint": "1",
+      "assignees": [
+        "ThiagoVenturaV"
+      ],
+      "grupo": "HAB-01"
+    },
+    {
+      "number": 50,
+      "title": "[RB-024] Implementar PostgreSQL transacional e migrations",
+      "code": "RB-024",
+      "sprint": "1",
+      "assignees": [
+        "cesab-ino"
+      ],
+      "grupo": "HAB-01"
+    },
+    {
+      "number": 38,
+      "title": "[RB-025] Implementar Firestore para estado operacional",
+      "code": "RB-025",
+      "sprint": "1",
+      "assignees": [
+        "Pedro-Lucas001"
+      ],
+      "grupo": "HAB-01"
+    },
+    {
+      "number": 61,
+      "title": "[RB-026] Implementar histórico e agregações no BigQuery",
+      "code": "RB-026",
+      "sprint": "1",
+      "assignees": [
+        "mluisacarvalho"
+      ],
+      "grupo": "HAB-01"
+    },
+    {
+      "number": 51,
+      "title": "[RB-027] Implementar identidade, consentimentos e exclusão",
+      "code": "RB-027",
+      "sprint": "1",
+      "assignees": [
+        "cesab-ino"
+      ],
+      "grupo": "HAB-01"
+    },
+    {
+      "number": 39,
+      "title": "[RB-028] Implementar APIs de catálogo, perfil e métricas",
+      "code": "RB-028",
+      "sprint": "1",
+      "assignees": [
+        "AlexLeandro00"
+      ],
+      "atribuicao_nativa_pendente": true,
+      "grupo": "HAB-01"
+    },
+    {
+      "number": 69,
+      "title": "[RB-029] Definir sistema visual e componentes reutilizáveis",
+      "code": "RB-029",
+      "sprint": "1",
+      "assignees": [],
+      "grupo": "US-02"
+    },
+    {
+      "number": 79,
+      "title": "[RB-030] Implementar estrutura do frontend e navegação",
+      "code": "RB-030",
+      "sprint": "1",
+      "assignees": [],
+      "grupo": "US-02"
+    },
+    {
+      "number": 70,
+      "title": "[RB-031] Implementar tela de integrações e conexão da loja",
+      "code": "RB-031",
+      "sprint": "1",
+      "assignees": [],
+      "grupo": "US-02"
+    },
+    {
+      "number": 40,
+      "title": "[RB-032] Implementar projeção de perfil e linha do tempo",
+      "code": "RB-032",
+      "sprint": "1",
+      "assignees": [
+        "Pedro-Lucas001"
+      ],
+      "grupo": "HAB-01"
+    },
+    {
+      "number": 62,
+      "title": "[RB-033] Definir métricas e consultas do dashboard",
+      "code": "RB-033",
+      "sprint": "1",
+      "assignees": [
+        "mluisacarvalho"
+      ],
+      "grupo": "HAB-01"
+    },
+    {
+      "number": 27,
+      "title": "[RB-034] Implementar observabilidade e diagnóstico básico",
+      "code": "RB-034",
+      "sprint": "1",
+      "assignees": [
+        "AlexLeandro00"
+      ],
+      "atribuicao_nativa_pendente": true,
+      "grupo": "HAB-01"
+    },
+    {
+      "number": 28,
+      "title": "[RB-035] Implementar conector Shopify de catálogo e eventos",
+      "code": "RB-035",
+      "sprint": "2",
+      "assignees": [
+        "AlexLeandro00"
+      ],
+      "atribuicao_nativa_pendente": true,
+      "grupo": "US-03"
+    },
+    {
+      "number": 8,
+      "title": "[RB-036] Implementar cotação e pedido pelo adaptador Shopify",
+      "code": "RB-036",
+      "sprint": "2",
+      "assignees": [
+        "AlexLeandro00"
+      ],
+      "atribuicao_nativa_pendente": true,
+      "grupo": "US-03"
+    },
+    {
+      "number": 29,
+      "title": "[RB-037] Implementar conector VTEX de catálogo e eventos",
+      "code": "RB-037",
+      "sprint": "2",
+      "assignees": [],
+      "grupo": "US-03"
+    },
+    {
+      "number": 9,
+      "title": "[RB-038] Implementar cotação e pedido pelo adaptador VTEX",
+      "code": "RB-038",
+      "sprint": "2",
+      "assignees": [
+        "ThiagoVenturaV"
+      ],
+      "grupo": "US-03"
+    },
+    {
+      "number": 41,
+      "title": "[RB-039] Integrar contrato versionado do GEO Readiness Audit",
+      "code": "RB-039",
+      "sprint": "2",
+      "assignees": [
+        "Pedro-Lucas001"
+      ],
+      "grupo": "US-04"
+    },
+    {
+      "number": 52,
+      "title": "[RB-040] Implementar prontidão e elegibilidade do catálogo",
+      "code": "RB-040",
+      "sprint": "2",
+      "assignees": [
+        "cesab-ino"
+      ],
+      "grupo": "US-04"
+    },
+    {
+      "number": 71,
+      "title": "[RB-041] Implementar painel GEO e prontidão de produtos",
+      "code": "RB-041",
+      "sprint": "2",
+      "assignees": [],
+      "grupo": "US-04"
+    },
+    {
+      "number": 10,
+      "title": "[RB-042] Criar camada de IA e contratos de ferramentas",
+      "code": "RB-042",
+      "sprint": "1",
+      "assignees": [
+        "ThiagoVenturaV"
+      ],
+      "grupo": "US-05"
+    },
+    {
+      "number": 30,
+      "title": "[RB-043] Integrar GPT e Gemini e validar equivalência",
+      "code": "RB-043",
+      "sprint": "2",
+      "assignees": [],
+      "grupo": "US-05"
+    },
+    {
+      "number": 42,
+      "title": "[RB-044] Implementar embeddings e recuperação de catálogo",
+      "code": "RB-044",
+      "sprint": "1",
+      "assignees": [
+        "Pedro-Lucas001"
+      ],
+      "grupo": "US-05"
+    },
+    {
+      "number": 11,
+      "title": "[RB-045] Implementar recomendação com catálogo e perfil",
+      "code": "RB-045",
+      "sprint": "2",
+      "assignees": [
+        "ThiagoVenturaV"
+      ],
+      "grupo": "US-05"
+    },
+    {
+      "number": 31,
+      "title": "[RB-046] Implementar Checkout Core e máquina de estados",
+      "code": "RB-046",
+      "sprint": "1",
+      "assignees": [],
+      "grupo": "US-06"
+    },
+    {
+      "number": 12,
+      "title": "[RB-047] Implementar cotação autoritativa WooCommerce",
+      "code": "RB-047",
+      "sprint": "2",
+      "assignees": [
+        "ThiagoVenturaV"
+      ],
+      "grupo": "US-06"
+    },
+    {
+      "number": 32,
+      "title": "[RB-048] Implementar criação e recuperação de pedido WooCommerce",
+      "code": "RB-048",
+      "sprint": "2",
+      "assignees": [],
+      "grupo": "US-06"
+    },
+    {
+      "number": 80,
+      "title": "[RB-049] Implementar interface conversacional e revisão da compra",
+      "code": "RB-049",
+      "sprint": "2",
+      "assignees": [],
+      "grupo": "US-06"
+    },
+    {
+      "number": 33,
+      "title": "[RB-050] Implementar Stripe em sandbox e callbacks",
+      "code": "RB-050",
+      "sprint": "2",
+      "assignees": [],
+      "grupo": "US-06"
+    },
+    {
+      "number": 81,
+      "title": "[RB-051] Implementar Google Pay de teste no checkout",
+      "code": "RB-051",
+      "sprint": "2",
+      "assignees": [],
+      "grupo": "US-06"
+    },
+    {
+      "number": 53,
+      "title": "[RB-052] Implementar conciliação, cancelamento e reembolso",
+      "code": "RB-052",
+      "sprint": "2",
+      "assignees": [
+        "cesab-ino"
+      ],
+      "grupo": "US-06"
+    },
+    {
+      "number": 13,
+      "title": "[RB-053] Implementar adaptador ACP sobre Checkout Core",
+      "code": "RB-053",
+      "sprint": "2",
+      "assignees": [
+        "ThiagoVenturaV"
+      ],
+      "grupo": "US-07"
+    },
+    {
+      "number": 34,
+      "title": "[RB-054] Implementar adaptador UCP sobre Checkout Core",
+      "code": "RB-054",
+      "sprint": "2",
+      "assignees": [],
+      "grupo": "US-07"
+    },
+    {
+      "number": 43,
+      "title": "[RB-055] Implementar feeds e descoberta do catálogo agêntico",
+      "code": "RB-055",
+      "sprint": "2",
+      "assignees": [
+        "Pedro-Lucas001"
+      ],
+      "grupo": "US-07"
+    },
+    {
+      "number": 72,
+      "title": "[RB-056] Identificar superfícies e evidências reais ou simuladas",
+      "code": "RB-056",
+      "sprint": "2",
+      "assignees": [],
+      "grupo": "US-07"
+    },
+    {
+      "number": 63,
+      "title": "[RB-057] Modelar carrinho, abandono e jornada analítica",
+      "code": "RB-057",
+      "sprint": "1",
+      "assignees": [
+        "mluisacarvalho"
+      ],
+      "grupo": "US-08"
+    },
+    {
+      "number": 44,
+      "title": "[RB-058] Implementar funil e atribuição da jornada",
+      "code": "RB-058",
+      "sprint": "2",
+      "assignees": [
+        "Pedro-Lucas001"
+      ],
+      "grupo": "US-08"
+    },
+    {
+      "number": 54,
+      "title": "[RB-059] Completar os dados do perfil 360 do MVP",
+      "code": "RB-059",
+      "sprint": "3",
+      "assignees": [
+        "cesab-ino"
+      ],
+      "grupo": "US-08"
+    },
+    {
+      "number": 73,
+      "title": "[RB-060] Implementar telas do perfil 360 e exclusão",
+      "code": "RB-060",
+      "sprint": "3",
+      "assignees": [],
+      "grupo": "US-08"
+    },
+    {
+      "number": 82,
+      "title": "[RB-061] Implementar visão executiva e receita do dashboard",
+      "code": "RB-061",
+      "sprint": "3",
+      "assignees": [],
+      "grupo": "US-08"
+    },
+    {
+      "number": 74,
+      "title": "[RB-062] Implementar dashboard de carrinhos e abandono",
+      "code": "RB-062",
+      "sprint": "3",
+      "assignees": [],
+      "grupo": "US-08"
+    },
+    {
+      "number": 83,
+      "title": "[RB-063] Implementar produtos, filtros e exportação",
+      "code": "RB-063",
+      "sprint": "3",
+      "assignees": [],
+      "grupo": "US-08"
+    },
+    {
+      "number": 75,
+      "title": "[RB-064] Completar dashboard GEO, protocolos e atribuição",
+      "code": "RB-064",
+      "sprint": "3",
+      "assignees": [],
+      "grupo": "US-08"
+    },
+    {
+      "number": 84,
+      "title": "[RB-065] Exibir qualidade, latência, falhas e custo de IA",
+      "code": "RB-065",
+      "sprint": "3",
+      "assignees": [],
+      "grupo": "US-08"
+    },
+    {
+      "number": 14,
+      "title": "[RB-066] Automatizar jornada principal do MVP em sandbox",
+      "code": "RB-066",
+      "sprint": "3",
+      "assignees": [
+        "ThiagoVenturaV"
+      ],
+      "grupo": "HAB-02"
+    },
+    {
+      "number": 35,
+      "title": "[RB-067] Testar falhas, idempotência e recuperação",
+      "code": "RB-067",
+      "sprint": "3",
+      "assignees": [
+        "AlexLeandro00"
+      ],
+      "atribuicao_nativa_pendente": true,
+      "grupo": "HAB-02"
+    },
+    {
+      "number": 15,
+      "title": "[RB-068] Verificar autorização, isolamento e proteção de dados",
+      "code": "RB-068",
+      "sprint": "3",
+      "assignees": [
+        "ThiagoVenturaV"
+      ],
+      "grupo": "HAB-02"
+    },
+    {
+      "number": 76,
+      "title": "[RB-069] Revisar usabilidade, responsividade e acessibilidade",
+      "code": "RB-069",
+      "sprint": "3",
+      "assignees": [],
+      "grupo": "HAB-02"
+    },
+    {
+      "number": 45,
+      "title": "[RB-070] Consolidar README e guias das frentes",
+      "code": "RB-070",
+      "sprint": "3",
+      "assignees": [
+        "Pedro-Lucas001"
+      ],
+      "grupo": "HAB-03"
+    },
+    {
+      "number": 55,
+      "title": "[RB-071] Organizar registro individual e consolidado de Prompt Ops",
+      "code": "RB-071",
+      "sprint": "3",
+      "assignees": [
+        "cesab-ino"
+      ],
+      "grupo": "HAB-03"
+    },
+    {
+      "number": 64,
+      "title": "[RB-072] Produzir documento de dois prompts que falharam",
+      "code": "RB-072",
+      "sprint": "3",
+      "assignees": [
+        "mluisacarvalho"
+      ],
+      "grupo": "HAB-03"
+    },
+    {
+      "number": 65,
+      "title": "[RB-073] Calcular custos e viabilidade econômica",
+      "code": "RB-073",
+      "sprint": "3",
+      "assignees": [
+        "mluisacarvalho"
+      ],
+      "grupo": "HAB-03"
+    },
+    {
+      "number": 85,
+      "title": "[RB-074] Criar slides e roteiro de apresentação do MVP",
+      "code": "RB-074",
+      "sprint": "3",
+      "assignees": [],
+      "grupo": "HAB-03"
+    },
+    {
+      "number": 16,
+      "title": "[RB-075] Ensaiar apresentação e preparar plano B",
+      "code": "RB-075",
+      "sprint": "3",
+      "assignees": [
+        "ThiagoVenturaV"
+      ],
+      "grupo": "HAB-03"
+    },
+    {
+      "number": 56,
+      "title": "[RB-076] Congelar versão e organizar pacote do MVP",
+      "code": "RB-076",
+      "sprint": "3",
+      "assignees": [
+        "cesab-ino"
+      ],
+      "grupo": "HAB-03"
+    },
+    {
+      "number": 17,
+      "title": "[RB-077] Registrar requisitos de submissão da entrega",
+      "code": "RB-077",
+      "sprint": "1",
+      "assignees": [
+        "ThiagoVenturaV"
+      ],
+      "grupo": "HAB-03"
+    },
+    {
+      "number": 46,
+      "title": "[RB-078] Reproduzir pacote em ambiente novo",
+      "code": "RB-078",
+      "sprint": "3",
+      "assignees": [
+        "Pedro-Lucas001"
+      ],
+      "grupo": "HAB-03"
+    },
+    {
+      "number": 18,
+      "title": "[RB-079] Submeter a entrega e guardar o comprovante",
+      "code": "RB-079",
+      "sprint": "4",
+      "assignees": [
+        "ThiagoVenturaV"
+      ],
+      "grupo": "HAB-03"
+    },
+    {
+      "number": 66,
+      "title": "[RB-080] Registrar contribuições e retrospectiva",
+      "code": "RB-080",
+      "sprint": "4",
+      "assignees": [
+        "mluisacarvalho"
+      ],
+      "grupo": "HAB-03"
+    },
+    {
+      "number": 19,
+      "title": "[RB-081] Implementar operação multiloja e isolamento de dados",
+      "code": "RB-081",
+      "sprint": "1",
+      "assignees": [
+        "ThiagoVenturaV"
+      ],
+      "grupo": "US-02"
+    },
+    {
+      "number": 20,
+      "title": "[RB-082] Especificar planos e cobrança SaaS futura",
+      "code": "RB-082",
+      "sprint": "future",
+      "assignees": [
+        "ThiagoVenturaV"
+      ],
+      "grupo": "US-09"
+    },
+    {
+      "number": 57,
+      "title": "[RB-083] Implementar CDP completo e identidade avançada",
+      "code": "RB-083",
+      "sprint": "3",
+      "assignees": [
+        "cesab-ino"
+      ],
+      "grupo": "US-08"
+    },
+    {
+      "number": 67,
+      "title": "[RB-084] Implementar rastreamento avançado e atribuição multitoque",
+      "code": "RB-084",
+      "sprint": "3",
+      "assignees": [
+        "mluisacarvalho"
+      ],
+      "grupo": "US-08"
+    },
+    {
+      "number": 21,
+      "title": "[RB-085] Mapear homologação e publicação em superfícies oficiais",
+      "code": "RB-085",
+      "sprint": "future",
+      "assignees": [
+        "ThiagoVenturaV"
+      ],
+      "grupo": "US-10"
+    }
+  ]
+}
