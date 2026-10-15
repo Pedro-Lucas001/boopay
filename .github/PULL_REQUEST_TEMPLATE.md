@@ -3,6 +3,9 @@
 - Código: RB-[código]
 - Issue: #[número real] — [título]
 - Relação: Refs #[número real]
+- História/habilitador: [US-XX ou HAB-XX do backlog]
+- Sprint/meta: [S1, S2, S3, entrega ou futuro]
+- RFC/decisão: [link e decisão pertinente]
 
 <!-- Troque Refs por Closes somente se este PR entregar todo o escopo da issue. O número da issue pode ser diferente do código RB. -->
 
@@ -32,6 +35,8 @@
 
 ## Conferência do autor
 - [ ] Conferi o escopo e todos os critérios de aceite da issue.
+- [ ] Conferi a Definition of Done e registrei os itens aplicáveis/pendentes.
+- [ ] Registrei o apoio de IA e as correções relevantes, quando houve uso.
 - [ ] Revisei os arquivos selecionados para este PR.
 - [ ] Executei a validação descrita e registrei os resultados.
 - [ ] Atualizei a documentação da entrega.
