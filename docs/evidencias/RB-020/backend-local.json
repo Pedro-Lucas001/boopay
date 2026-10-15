@@ -1,0 +1,40 @@
+{
+  "recordedAt": "2026-10-12T16:56:52.984Z",
+  "platform": "win32",
+  "node": "v24.18.0",
+  "codeBaseCommit": "fc3ebc9b35a1e01d70919a1e758d211d027faeb9",
+  "scope": "Backend local e cliente PHP isolado. Não valida plugin instalado, loja limpa, rede WordPress nem HPOS.",
+  "passed": true,
+  "results": [
+    {
+      "name": "compilacao",
+      "command": "node node_modules/typescript/bin/tsc --noEmit",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "name": "javascript",
+      "command": "node scripts/check-javascript.mjs",
+      "exitCode": 0,
+      "output": "JavaScript: 8 arquivos verificados.\n"
+    },
+    {
+      "name": "php",
+      "command": "node scripts/check-php.mjs",
+      "exitCode": 0,
+      "output": "No syntax errors detected in integrations\\woocommerce\\class-boopay-signed-http-client.php\nNo syntax errors detected in plugin\\boopay\\boopay.php\nNo syntax errors detected in plugin\\boopay\\includes\\class-boopay-catalog.php\nNo syntax errors detected in plugin\\boopay\\includes\\class-boopay-plugin.php\nNo syntax errors detected in plugin\\boopay\\includes\\class-boopay-signed-http-client.php\nNo syntax errors detected in plugin\\boopay\\includes\\class-boopay-tracking.php\nNo syntax errors detected in plugin\\boopay\\uninstall.php\nNo syntax errors detected in tests\\php-client.test.php\nNo syntax errors detected in tests\\php-signature.php\nPASS: destinos não permitidos rejeitados antes do transporte\nPASS: timeout, redirects e TLS\nPASS: assinatura do corpo exato\nPASS: nonce novo por tentativa\nPASS: erro de transporte sem vazamento\nPASS: erro HTTP sem corpo remoto\n6 grupos de verificações PHP passaram; funções WordPress substituídas, sem instalação real.\n"
+    },
+    {
+      "name": "documentacao",
+      "command": "node scripts/check-docs.mjs",
+      "exitCode": 0,
+      "output": "Documentação: 100 arquivos, links relativos válidos.\n"
+    },
+    {
+      "name": "testes",
+      "command": "node --import tsx --test tests/contracts.test.ts tests/credentials.test.ts tests/ingestion.test.ts tests/logging.test.ts tests/signed-request.test.ts",
+      "exitCode": 0,
+      "output": "✔ contrato versionado aceita simples, variável e vazio e rejeita PII e números inválidos (13.1494ms)\n✔ conexão: expiração, vínculo, uso único concorrente, persistência e revogação (12088.0048ms)\n✔ catálogo transacional: ordem, tombstone, variações, concorrência, tenants e eventos (14859.49ms)\n✔ logs de request não registram tokens, assinatura ou código do corpo (272.2449ms)\n✔ assinatura PHP e Node usam o mesmo vetor de bytes (73.8176ms)\n✔ HTTP assinado: autenticação, corpo/tempo/vínculo, replay e isolamento de SKU (12978.2616ms)\nℹ tests 6\nℹ suites 0\nℹ pass 6\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 15398.5026\n"
+    }
+  ]
+}

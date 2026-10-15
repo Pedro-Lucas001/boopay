@@ -22,7 +22,7 @@ Migração 20261012120000 é aditiva; não converte SKU legado sem identidade de
 
 ## Validação e revisão
 
-`npm run check` executa contrato, segurança e ingestão em bancos temporários. Cenários incluem lote inválido sem escrita, delete antes de upsert antigo, variações vazias, SKU vazio em duas integrações, recibo repetido/conflitante, concorrência, evento sem consentimento/PII rejeitado e saúde isolada. Evidência de execução é anexada ao PR; integração real WordPress será registrada na entrega QA.
+`npm run check` executa contrato, segurança e ingestão em bancos temporários. Cenários incluem lote inválido sem escrita, delete antes de upsert antigo, variações vazias, SKU vazio em duas integrações, recibo repetido/conflitante, concorrência, evento sem consentimento/PII rejeitado e saúde isolada. A integração real WordPress passou em 44 verificações locais no PR #94, com [resultado](../evidencias/WORDPRESS/results.json), [QA no navegador](../evidencias/BROWSER/README.md) e [matriz/limites](./RB-020.md). A CI executa a mesma matriz em SQLite e MySQL; consultar os jobs/artefatos da execução.
 
 Revisão da main 3f22847: RB-005 tinha apenas contrato parcial de catálogo; RB-015 tinha rota receptora, sem hooks, ordenação ou reconciliação de variações. **Não aprovados para Feito nessa revisão.** A complementação segue em PRs; Pedro deve revisar a mudança de contrato e o mapa de hooks.
 

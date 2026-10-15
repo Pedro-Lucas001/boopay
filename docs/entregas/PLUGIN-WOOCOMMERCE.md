@@ -50,9 +50,11 @@ O runner depende de tráfego/cron da hospedagem. Nunca manter a fila rodando ap�
 
 Tracking desligado = nenhum script de eventos carregado e nenhuma sessão criada. Ao habilitar, a vitrine oferece Permitir e Recusar/revogar. Consentimento por 24 horas em cookie Secure/HttpOnly/SameSite=Lax assinado; sessão aleatória pseudonimizada por HMAC com salt da loja. Rota WordPress valida origem/nonce e cookie; limite de 30 eventos/min por pseudônimo. view ao carregar página consentida, exit_intent ao sair pelo topo com mouse (não se aplica a touch), add_to_cart somente após hook de sucesso WooCommerce, incluindo Store API. Sem email, endereço, cartão, URL ou conteúdo livre; catálogo usa dados públicos de produtos. Revogar para novos eventos; eventos já entregues exigem política de retenção do operador. Integrar outra CMP exige adaptar consentimento antes de habilitar na loja real.
 
+A configuração JS usa JSON tipado via `wp_add_inline_script`; a localização de traduções alteraria booleanos/IDs para strings. Regressões verificadas no WordPress real e no [Chrome](../evidencias/BROWSER/README.md): consentimento persiste ao recarregar e eventos de produto mantêm ID inteiro.
+
 ## Validação e limites
 
-[Contrato v1](../contratos/plugin-v1.md); checks PHP/JS e segurança; QA real WordPress/ZIP/API/Action Scheduler será anexada pelo PR de validação. O relatório informa exatamente casos executados e armazenamento usado. HPOS: nenhuma leitura/escrita de pedido, declaração de compatibilidade no bootstrap; não qualifica fluxo de checkout/pagamentos. Teste em MySQL/MariaDB da hospedagem, revisão humana e reprodução por outra pessoa continuam requisitos antes de aceite final.
+[Contrato v1](../contratos/plugin-v1.md); checks PHP/JS e segurança; [44 verificações WordPress/ZIP/API/Action Scheduler](../evidencias/WORDPRESS/results.json) e [QA no Chrome](../evidencias/BROWSER/README.md). A CI contém perfis SQLite/MySQL; conferir os resultados dos jobs. O relatório informa exatamente casos executados e armazenamento usado. HPOS: nenhuma leitura/escrita de pedido, declaração de compatibilidade no bootstrap; não qualifica fluxo de checkout/pagamentos. Teste na hospedagem, revisão humana e reprodução por outra pessoa continuam requisitos antes de aceite final.
 
 ## Recuperação de release
 
