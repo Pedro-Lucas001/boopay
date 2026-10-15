@@ -2,9 +2,8 @@ import { FastifyInstance } from 'fastify';
 import { syncCatalogSchema } from './catalog-contract';
 import { PrismaClient } from '@prisma/client';
 
-const prisma = new PrismaClient();
-
-export async function boopayRoutes(app: FastifyInstance) {
+export async function boopayRoutes(app: FastifyInstance, options: { db: PrismaClient }) {
+  const prisma = options.db;
   
   // Endpoint de Saúde mapeado na documentação da API
   app.get('/health', async () => {
