@@ -4,6 +4,7 @@ import { ZodError } from 'zod';
 import { boopayRoutes } from './http/routes';
 import { connectionRoutes } from './http/connection-routes';
 import { AccessError, CredentialService } from './security/credentials';
+import { verifySignedRequest } from './security/signed-request';
 
 export function buildApp(options: { db: PrismaClient; credentialKey: string; adminToken: string; logger?: boolean; now?: () => Date }) {
   const app = Fastify({
@@ -11,6 +12,16 @@ export function buildApp(options: { db: PrismaClient; credentialKey: string; adm
     bodyLimit: 1024 * 1024
   });
   const credentials = new CredentialService(options.db, options.credentialKey, options.now);
+  app.removeContentTypeParser('application/json');
+  const parseJson = app.getDefaultJsonParser('error', 'error');
+  app.addContentTypeParser('application/json', { parseAs: 'buffer' }, (request, body, done) => {
+    request.boopayRawBody = Buffer.isBuffer(body) ? body : Buffer.from(body);
+    parseJson(request, body.toString('utf8'), done);
+  });
+  app.addHook('preHandler', async request => {
+    if (request.routeOptions.url === '/v1/admin/catalog/sync')
+      await verifySignedRequest(request, credentials);
+  });
   app.setErrorHandler((error, request, reply) => {
     if (error instanceof AccessError) return reply.code(error.statusCode).send({ error: error.code });
     if (error instanceof ZodError) return reply.code(400).send({ error: 'invalid_payload' });
