@@ -1,72 +1,67 @@
+import { createHash } from 'node:crypto';
 import { FastifyInstance } from 'fastify';
-import { syncCatalogSchema } from './catalog-contract';
-import { PrismaClient } from '@prisma/client';
+import { syncCatalogSchema, storeEventSchema } from './catalog-contract';
+import { Prisma, PrismaClient } from '@prisma/client';
 import { AccessError } from '../security/credentials';
 
 export async function boopayRoutes(app: FastifyInstance, options: { db: PrismaClient }) {
-  const prisma = options.db;
-  
-  // Endpoint de Saúde mapeado na documentação da API
-  app.get('/health', async () => {
-    return { status: 'ok', api: 'Boopay API', time: new Date() };
-  });
-
-  // [RB-005] Contrato Zod para validação do payload enviado pelo plugin
-
-  // [RB-015] Rota de atualizações e exclusões incrementais (POST /v1/admin/catalog/sync)
-  app.post('/v1/admin/catalog/sync', async (request, reply) => {
-    const { merchant_id, items } = syncCatalogSchema.parse(request.body);
-    if (request.boopayIntegration?.merchantId !== merchant_id)
-      throw new AccessError(403, 'merchant_mismatch');
-    // A chave global atual é uma limitação de RB-006/RB-016. Enquanto ela
-    // existir, rejeitar colisão entre lojas antes de qualquer alteração.
-    for (const item of items) {
-      const existing = await prisma.product.findUnique({ where: { sku_woocommerce: item.sku_woocommerce } });
-      if (existing && existing.merchant_id !== merchant_id)
-        throw new AccessError(403, 'product_ownership_mismatch');
-    }
-    const resultados = { atualizados: 0, excluidos: 0, falhas: 0 };
-
-    for (const item of items) {
+  const db = options.db;
+  app.get('/health', async () => ({ status: 'ok', api: 'Boopay API' }));
+  app.post('/v1/admin/catalog/sync', async request => {
+    const input = syncCatalogSchema.parse(request.body), integration = request.boopayIntegration!;
+    if (integration.merchantId !== input.merchant_id) throw new AccessError(403, 'merchant_mismatch');
+    const hash = createHash('sha256').update(request.boopayRawBody!).digest('hex');
+    for (let attempt = 0; ; attempt++) {
       try {
-        if (item.action === 'delete') {
-          // Exclusão incremental: apenas inativa o produto
-          await prisma.product.updateMany({
-            where: { sku_woocommerce: item.sku_woocommerce, merchant_id },
-            data: { status: 'inativo' }
-          });
-          resultados.excluidos++;
-        } else if (item.action === 'upsert') {
-          // Atualização incremental: cria se não existe, atualiza se já existe
-          await prisma.$transaction(async tx => {
-            const existing = await tx.product.findUnique({ where: { sku_woocommerce: item.sku_woocommerce } });
-            if (existing && existing.merchant_id !== merchant_id)
-              throw new AccessError(403, 'product_ownership_mismatch');
-            await tx.product.upsert({
-            where: { sku_woocommerce: item.sku_woocommerce },
-            update: {
-              nome: item.nome,
-              preco: item.preco,
-              estoque: item.estoque,
-              status: 'ativo'
-            },
-            create: {
-                sku_woocommerce: item.sku_woocommerce,
-                nome: item.nome || 'Produto Sem Nome',
-                preco: item.preco || 0,
-                estoque: item.estoque || 0,
-                url_loja_origem: item.url_loja_origem || '',
-                merchant_id: merchant_id
-              }
-            });
-          });
-          resultados.atualizados++;
-        }
+        return await db.$transaction(async tx => {
+          const key = { integrationId: integration.id, eventId: input.event_id };
+          const receipt = await tx.catalogReceipt.findUnique({ where: { integrationId_eventId: key } });
+          if (receipt) {
+            if (receipt.payloadHash !== hash) throw new AccessError(409, 'event_id_conflict');
+            return { status: 'success', duplicate: true, applied: 0, ignored: input.items.length };
+          }
+          let applied = 0, ignored = 0;
+          for (const item of input.items) {
+            const identity = { integrationId: integration.id, sourceId: item.source_id };
+            const existing = await tx.catalogItem.findUnique({ where: { integrationId_sourceId: identity } });
+            if (existing && existing.revision >= BigInt(item.revision)) { ignored++; continue; }
+            const data = { revision: BigInt(item.revision), deleted: item.action === 'delete', snapshot: JSON.stringify(item) };
+            await tx.catalogItem.upsert({ where: { integrationId_sourceId: identity },
+              create: { ...identity, ...data }, update: data });
+            applied++;
+          }
+          await tx.catalogReceipt.create({ data: { ...key, payloadHash: hash } });
+          return { status: 'success', duplicate: false, applied, ignored };
+        });
       } catch (error) {
-        request.log.error(`Erro SKU ${item.sku_woocommerce}`);
-        resultados.falhas++;
+        if (attempt < 2 && error instanceof Prisma.PrismaClientKnownRequestError
+          && ['P2002', 'P2034', 'P1008'].includes(error.code)) continue;
+        throw error;
       }
     }
-    return { status: 'success', resultados };
+  });
+  app.post('/v1/events', async request => {
+    const input = storeEventSchema.parse(request.body), integrationId = request.boopayIntegration!.id;
+    const payloadHash = createHash('sha256').update(request.boopayRawBody!).digest('hex');
+    const key = { integrationId, eventId: input.event_id };
+    try {
+      await db.storeEvent.create({ data: { ...key, payloadHash, kind: input.kind,
+        sessionHash: input.session_hash, productId: input.product_id, occurredAt: new Date(input.occurred_at) } });
+      return { status: 'accepted', duplicate: false };
+    } catch (error) {
+      if (!(error instanceof Prisma.PrismaClientKnownRequestError) || error.code !== 'P2002') throw error;
+      const existing = await db.storeEvent.findUniqueOrThrow({ where: { integrationId_eventId: key } });
+      if (existing.payloadHash !== payloadHash) throw new AccessError(409, 'event_id_conflict');
+      return { status: 'accepted', duplicate: true };
+    }
+  });
+  app.post('/v1/integrations/health', async request => {
+    const id = request.boopayIntegration!.id;
+    const [catalogCount, lastEvent] = await Promise.all([
+      db.catalogItem.count({ where: { integrationId: id, deleted: false } }),
+      db.storeEvent.findFirst({ where: { integrationId: id }, orderBy: { receivedAt: 'desc' },
+        select: { eventId: true, kind: true, receivedAt: true } })
+    ]);
+    return { status: 'connected', integration_id: id, catalog_count: catalogCount, last_event: lastEvent };
   });
 }

@@ -4,7 +4,7 @@ import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { randomBytes } from 'node:crypto';
+import { randomBytes, randomUUID } from 'node:crypto';
 import { PrismaClient } from '@prisma/client';
 import { buildApp } from '../src/app';
 import { signRequest } from '../src/security/signed-request';
@@ -32,7 +32,7 @@ test('HTTP assinado: autenticação, corpo/tempo/vínculo, replay e isolamento d
     const a = await createMerchant('store-a'), b = await createMerchant('store-b');
     const code = await credentials.issueCode('tenant-a', a.id, 'https://store.example');
     const identity = await credentials.exchange(code.code, 'https://store.example');
-    const body = JSON.stringify({ merchant_id: a.id, items: [] });
+    const body = JSON.stringify({ version: 1, event_id: randomUUID(), merchant_id: a.id, items: [] });
     const make = (payload = body, overrides: Record<string, string> = {}) => {
       const timestamp = String(Math.floor(clock.getTime() / 1000)), nonce = randomBytes(16).toString('hex');
       return { method: 'POST' as const, url: '/v1/admin/catalog/sync', payload,
@@ -46,7 +46,7 @@ test('HTTP assinado: autenticação, corpo/tempo/vínculo, replay e isolamento d
     assert.equal((await app.inject({ method: 'POST', url: '/v1/admin/catalog/sync',
       payload: { merchant_id: a.id, items: [] } })).statusCode, 401);
     assert.equal((await app.inject(make())).statusCode, 200);
-    const tampered = make(); tampered.payload = JSON.stringify({ merchant_id: b.id, items: [] });
+    const tampered = make(); tampered.payload = JSON.stringify({ version: 1, event_id: randomUUID(), merchant_id: b.id, items: [] });
     assert.equal((await app.inject(tampered)).statusCode, 401);
     assert.equal((await app.inject(make(body, { authorization: 'Bearer invalid' }))).statusCode, 401);
     assert.equal((await app.inject(make(body, { 'x-boopay-tenant': 'tenant-b' }))).statusCode, 403);
@@ -66,18 +66,7 @@ test('HTTP assinado: autenticação, corpo/tempo/vínculo, replay e isolamento d
     clock.setTime(initialTime + 302_000);
     assert.equal((await app.inject(futureTimestamp)).statusCode, 409);
     clock.setTime(initialTime);
-    assert.equal((await app.inject(make(JSON.stringify({ merchant_id: b.id, items: [] })))).statusCode, 403);
-    await db.product.create({ data: { sku_woocommerce: 'FOREIGN-SKU', nome: 'Loja B', preco: 10,
-      estoque: 1, url_loja_origem: 'https://b.example', merchant_id: b.id } });
-    for (const action of ['upsert', 'delete']) {
-      assert.equal((await app.inject(make(JSON.stringify({ merchant_id: a.id,
-        items: [{ action, sku_woocommerce: 'FOREIGN-SKU', nome: 'changed' }] })))).statusCode, 403);
-    }
-    const foreign = await db.product.findUniqueOrThrow({ where: { sku_woocommerce: 'FOREIGN-SKU' } });
-    assert.equal(foreign.nome, 'Loja B'); assert.equal(foreign.status, 'ativo');
-    assert.equal((await app.inject(make(JSON.stringify({ merchant_id: a.id,
-      items: [{ action: 'upsert', sku_woocommerce: 'OWN-SKU', nome: 'Próprio', preco: 12, estoque: 3 }] })))).statusCode, 200);
-    assert.equal((await db.product.findUniqueOrThrow({ where: { sku_woocommerce: 'OWN-SKU' } })).merchant_id, a.id);
+    assert.equal((await app.inject(make(JSON.stringify({ version: 1, event_id: randomUUID(), merchant_id: b.id, items: [] })))).statusCode, 403);
     assert.equal((await app.inject(make('{bad-json'))).statusCode, 400);
     assert.equal((await app.inject(make('x'.repeat(1024 * 1024 + 1)))).statusCode, 413);
     await credentials.revoke(identity.token);

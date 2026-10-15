@@ -1,0 +1,7 @@
+{
+  "empty": {"version":1,"merchant_id":1,"event_id":"10000000-0000-4000-8000-000000000001","items":[]},
+  "simple": {"action":"upsert","source_id":101,"revision":1,"sku":"DEMO-101","name":"Camiseta sintética","type":"simple","price":"39.90","stock":5,"in_stock":true,"url":"https://store.example/product/demo","images":[],"variations":[]},
+  "variable": {"action":"upsert","source_id":102,"revision":1,"sku":"DEMO-102","name":"Caneca sintética","type":"variable","price":"29.90","stock":null,"in_stock":true,"url":"https://store.example/product/caneca","images":[],"variations":[{"source_id":103,"sku":"DEMO-103","price":"29.90","stock":3,"in_stock":true,"attributes":{"cor":"azul"}}]},
+  "delete": {"action":"delete","source_id":101,"revision":2},
+  "event": {"version":1,"event_id":"10000000-0000-4000-8000-000000000002","kind":"view","session_hash":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","product_id":101,"occurred_at":"2026-10-12T12:00:00.000Z","consent":true}
+}
