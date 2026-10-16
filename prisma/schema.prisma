@@ -47,7 +47,16 @@ model Integration {
   revokedAt       DateTime?
   createdAt       DateTime  @default(now())
   merchant        Merchant  @relation(fields: [merchantId], references: [id])
+  catalog         CatalogItem[]
+  receipts        CatalogReceipt[]
+  events          StoreEvent[]
   @@index([tenantId, merchantId])
+}
+
+model ReplayNonce {
+  id        String   @id
+  expiresAt DateTime
+  @@index([expiresAt])
 }
 
 model Product {
@@ -64,4 +73,39 @@ model Product {
 
   merchant_id      Int
   merchant         Merchant  @relation(fields: [merchant_id], references: [id])
+}
+
+// Product é legado. Novos envios usam integração + ID WooCommerce.
+model CatalogItem {
+  id            String @id @default(uuid())
+  integrationId String
+  sourceId      Int
+  revision      BigInt
+  deleted       Boolean @default(false)
+  snapshot      String
+  updatedAt     DateTime @updatedAt
+  integration   Integration @relation(fields: [integrationId], references: [id])
+  @@unique([integrationId, sourceId])
+}
+model CatalogReceipt {
+  id            String @id @default(uuid())
+  integrationId String
+  eventId       String
+  payloadHash   String
+  createdAt     DateTime @default(now())
+  integration   Integration @relation(fields: [integrationId], references: [id])
+  @@unique([integrationId, eventId])
+}
+model StoreEvent {
+  id            String @id @default(uuid())
+  integrationId String
+  eventId       String
+  payloadHash   String
+  kind          String
+  sessionHash   String
+  productId     Int?
+  occurredAt    DateTime
+  receivedAt    DateTime @default(now())
+  integration   Integration @relation(fields: [integrationId], references: [id])
+  @@unique([integrationId, eventId])
 }
