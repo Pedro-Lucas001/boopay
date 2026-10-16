@@ -24,6 +24,8 @@ Cada integrante confirma sua disponibilidade na planning. Uma história descreve
 
 ## Acessos do time
 
+Entrega WooCommerce: comece pelo [índice do plugin](docs/entregas/INDICE-PLUGIN.md), siga o [tutorial de ambiente e instalação](docs/entregas/AMBIENTE-PLUGIN.md) e consulte a [QA executada](docs/entregas/RB-020.md). `npm run package:plugin` gera ZIP/manifesto; o workflow do PR disponibiliza ambos como artefato. Validação local não substitui revisão e aceite do time.
+
 - [Quadro — execução do MVP](https://github.com/users/Pedro-Lucas001/projects/2/views/1)
 - [Quadro — foco WooCommerce](https://github.com/users/Pedro-Lucas001/projects/2/views/6)
 - [Backlog futuro](https://github.com/users/Pedro-Lucas001/projects/2/views/7)

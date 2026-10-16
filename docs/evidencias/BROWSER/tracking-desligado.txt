@@ -1,0 +1,121 @@
+- navigation "Toolbar":
+  - menu:
+    - menuitem "About WordPress":
+      - generic: 
+      - generic: About WordPress
+    - menuitem " BooPay — QA visual"
+    - menuitem "Store coming soon"
+    - menuitem " Edit Site"
+    - menuitem "4 updates available":
+      - generic: 
+      - generic: "4"
+      - generic: 4 updates available
+    - menuitem "0 Comments in moderation":
+      - generic: 
+      - generic: "0"
+      - generic: 0 Comments in moderation
+    - menuitem "New":
+      - generic: 
+      - generic: New
+    - menuitem " Edit product"
+  - menu:
+    - menuitem "Howdy, qa_admin"
+    - menuitem " Search":
+      - text: 
+      - textbox "Search"
+      - generic: Search
+- link "Skip to content":
+  - /url: "#wp--skip-link--target"
+- banner:
+  - paragraph:
+    - link "BooPay — QA visual":
+      - /url: http://localhost:8089
+  - navigation:
+    - list:
+      - list:
+        - link "Cart":
+          - /url: http://localhost:8089/?page_id=6
+        - link "Checkout":
+          - /url: http://localhost:8089/?page_id=7
+        - link "My account":
+          - /url: http://localhost:8089/?page_id=8
+        - link "Sample Page":
+          - /url: http://localhost:8089/?page_id=2
+        - link "Shop":
+          - /url: http://localhost:8089/?page_id=5
+  - link "My Account":
+    - /url: http://localhost:8089/?page_id=8
+  - button "0 items in cart, total price of $0.00":
+  - paragraph:
+    - strong: Your cart is currently empty!
+- main:
+  - navigation "Breadcrumb":
+    - link "Home":
+      - /url: http://localhost:8089
+    - text: /
+    - link "Uncategorized":
+      - /url: http://localhost:8089/?product_cat=uncategorized
+    - text: / Camiseta de teste BooPay
+  - img "Awaiting product image"
+  - heading "Camiseta de teste BooPay" [level=1]
+  - generic: $39.90
+  - paragraph
+  - generic: Camiseta de teste BooPay quantity
+  - spinbutton "Product quantity": "1"
+  - button "Add to cart"
+  - text: "Category:"
+  - link "Uncategorized":
+    - /url: http://localhost:8089/?product_cat=uncategorized
+  - tablist:
+    - tab "Reviews (0)" [selected]
+  - tabpanel "Reviews (0)":
+    - heading "Reviews" [level=2]
+    - paragraph: There are no reviews yet.
+    - heading "Be the first to review “Camiseta de teste BooPay”" [level=3]: Be the first to review “Camiseta de teste BooPay”
+    - generic: Your rating *
+    - paragraph:
+      - group "Your rating *":
+        - radio " 1 of 5 stars"
+        - radio " 2 of 5 stars"
+        - radio " 3 of 5 stars"
+        - radio " 4 of 5 stars"
+        - radio " 5 of 5 stars"
+    - paragraph:
+      - generic: Your review *
+      - textbox "Your review *"
+    - paragraph:
+      - button "Submit"
+- contentinfo:
+  - heading "BooPay — QA visual" [level=2]:
+    - link "BooPay — QA visual":
+      - /url: http://localhost:8089
+  - navigation:
+    - list:
+      - link "Blog":
+        - /url: "#"
+      - link "About":
+        - /url: "#"
+      - link "FAQs":
+        - /url: "#"
+      - link "Authors":
+        - /url: "#"
+  - navigation:
+    - list:
+      - link "Events":
+        - /url: "#"
+      - link "Shop":
+        - /url: "#"
+      - link "Patterns":
+        - /url: "#"
+      - link "Themes":
+        - /url: "#"
+  - paragraph: Twenty Twenty-Five
+  - paragraph:
+    - text: Designed with
+    - link "WordPress":
+      - /url: https://wordpress.org
+- paragraph: "QA cookie: absent; session: invalid; remaining: 0"
+- text: This page is in "Coming soon" mode and is only visible to you and those who have permission. To make it public to everyone,
+- link "change visibility settings":
+  - /url: http://localhost:8089/wp-admin/admin.php?page=wc-settings&tab=site-visibility
+- status

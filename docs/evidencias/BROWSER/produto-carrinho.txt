@@ -1,0 +1,107 @@
+- link "Skip to content":
+  - /url: "#wp--skip-link--target"
+- banner:
+  - paragraph:
+    - link "BooPay — QA visual":
+      - /url: http://localhost:8089
+  - navigation:
+    - list:
+      - list:
+        - link "Cart":
+          - /url: http://localhost:8089/?page_id=6
+        - link "Checkout":
+          - /url: http://localhost:8089/?page_id=7
+        - link "My account":
+          - /url: http://localhost:8089/?page_id=8
+        - link "Sample Page":
+          - /url: http://localhost:8089/?page_id=2
+        - link "Shop":
+          - /url: http://localhost:8089/?page_id=5
+- main:
+  - navigation "Breadcrumb":
+    - link "Home":
+      - /url: http://localhost:8089
+    - text: /
+    - link "Uncategorized":
+      - /url: http://localhost:8089/?product_cat=uncategorized
+    - text: / Camiseta de teste BooPay
+  - alert [active]:
+    - text: “Camiseta de teste BooPay” has been added to your cart.
+    - link "View cart":
+      - /url: http://localhost:8089/?page_id=6
+  - img "Awaiting product image"
+  - heading "Camiseta de teste BooPay" [level=1]
+  - generic: $39.90
+  - paragraph
+  - generic: Camiseta de teste BooPay quantity
+  - spinbutton "Product quantity": "1"
+  - button "Add to cart"
+  - text: "Category:"
+  - link "Uncategorized":
+    - /url: http://localhost:8089/?product_cat=uncategorized
+  - tablist:
+    - tab "Reviews (0)" [selected]
+  - tabpanel "Reviews (0)":
+    - heading "Reviews" [level=2]
+    - paragraph: There are no reviews yet.
+    - heading "Be the first to review “Camiseta de teste BooPay”" [level=3]: Be the first to review “Camiseta de teste BooPay”
+    - paragraph:
+      - text: Your email address will not be published.
+      - generic: Required fields are marked *
+    - generic: Your rating *
+    - paragraph:
+      - group "Your rating *":
+        - radio " 1 of 5 stars"
+        - radio " 2 of 5 stars"
+        - radio " 3 of 5 stars"
+        - radio " 4 of 5 stars"
+        - radio " 5 of 5 stars"
+    - paragraph:
+      - generic: Your review *
+      - textbox "Your review *"
+    - paragraph:
+      - generic: Name *
+      - textbox "Name *"
+    - paragraph:
+      - generic: Email *
+      - textbox "Email *"
+    - paragraph:
+      - checkbox "Save my name, email, and website in this browser for the next time I comment."
+      - text: Save my name, email, and website in this browser for the next time I comment.
+    - paragraph:
+      - button "Submit"
+- contentinfo:
+  - heading "BooPay — QA visual" [level=2]:
+    - link "BooPay — QA visual":
+      - /url: http://localhost:8089
+  - navigation:
+    - list:
+      - link "Blog":
+        - /url: "#"
+      - link "About":
+        - /url: "#"
+      - link "FAQs":
+        - /url: "#"
+      - link "Authors":
+        - /url: "#"
+  - navigation:
+    - list:
+      - link "Events":
+        - /url: "#"
+      - link "Shop":
+        - /url: "#"
+      - link "Patterns":
+        - /url: "#"
+      - link "Themes":
+        - /url: "#"
+  - paragraph: Twenty Twenty-Five
+  - paragraph:
+    - text: Designed with
+    - link "WordPress":
+      - /url: https://wordpress.org
+- region "Preferências de eventos da loja":
+  - paragraph: Você permite enviar eventos de navegação para melhorar esta loja? A escolha é opcional e pode ser revogada aqui.
+  - button "Permitir eventos" [disabled]
+  - button "Recusar / revogar"
+  - status: Eventos permitidos.
+- status

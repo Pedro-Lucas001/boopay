@@ -1,0 +1,64 @@
+- link "Skip to content":
+  - /url: "#wp--skip-link--target"
+- banner:
+  - paragraph:
+    - link "BooPay — QA visual":
+      - /url: http://localhost:8089
+  - navigation:
+    - list:
+      - list:
+        - link "Cart":
+          - /url: http://localhost:8089/?page_id=6
+        - link "Checkout":
+          - /url: http://localhost:8089/?page_id=7
+        - link "My account":
+          - /url: http://localhost:8089/?page_id=8
+        - link "Sample Page":
+          - /url: http://localhost:8089/?page_id=2
+        - link "Shop":
+          - /url: http://localhost:8089/?page_id=5
+- main:
+  - heading "Blog" [level=1]
+  - list:
+    - heading "Hello world!" [level=2]:
+      - link "Hello world!":
+        - /url: http://localhost:8089/?p=1
+    - paragraph: Welcome to WordPress. This is your first post. Edit or delete it, then start writing!
+    - time:
+      - link "October 12, 2026":
+        - /url: http://localhost:8089/?p=1
+- contentinfo:
+  - heading "BooPay — QA visual" [level=2]:
+    - link "BooPay — QA visual":
+      - /url: http://localhost:8089
+  - navigation:
+    - list:
+      - link "Blog":
+        - /url: "#"
+      - link "About":
+        - /url: "#"
+      - link "FAQs":
+        - /url: "#"
+      - link "Authors":
+        - /url: "#"
+  - navigation:
+    - list:
+      - link "Events":
+        - /url: "#"
+      - link "Shop":
+        - /url: "#"
+      - link "Patterns":
+        - /url: "#"
+      - link "Themes":
+        - /url: "#"
+  - paragraph: Twenty Twenty-Five
+  - paragraph:
+    - text: Designed with
+    - link "WordPress":
+      - /url: https://wordpress.org
+- region "Preferências de eventos da loja":
+  - paragraph: Você permite enviar eventos de navegação para melhorar esta loja? A escolha é opcional e pode ser revogada aqui.
+  - button "Permitir eventos" [disabled]
+  - button "Recusar / revogar"
+  - status: Eventos permitidos.
+- status
