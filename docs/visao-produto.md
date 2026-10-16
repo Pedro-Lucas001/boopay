@@ -1,6 +1,6 @@
 # Visão e objetivo do Boopay
 
-Versão de planejamento: 14/10/2026. Escopo confirmado por Thiago; revisão técnica e validação do time seguem nas issues/RFCs.
+Versão de planejamento: 14/10/2026. Escopo confirmado por Thiago; revisão técnica e validação do time seguem nas issues/manuais.
 
 ## Problema e usuários
 Lojistas precisam disponibilizar catálogo e operações comerciais aos agentes sem perder controle de preço, estoque, identidade, pedidos e resultados. Compradores precisam encontrar produtos e revisar uma compra na conversa, com informação confiável e confirmação explícita. Operadores autorizados precisam administrar lojas e compreender a jornada de seus clientes.
@@ -20,4 +20,4 @@ Planos/cobrança SaaS (#20) e homologação/publicação oficial em superfícies
 - **Hipótese de valor:** a jornada conversacional facilita descoberta/compra e ajuda o lojista a interpretar resultados. Medir com usuários; não apresentar melhoria de conversão como resultado comprovado.
 - **Riscos:** dependências externas, concentração de revisão em Thiago e integração tardia. Preparar contratos cedo, revisar PRs e demonstrar incrementos semanalmente.
 
-Cada história tem critérios específicos; toda entrega atende à [Definition of Done](definition-of-done.md). Mudanças de escopo precisam aparecer na issue, na RFC, neste documento e na meta correspondente.
+Cada história tem critérios específicos; toda entrega atende à [Definition of Done](definition-of-done.md). Mudanças de escopo precisam aparecer na issue, no manual, neste documento e na meta correspondente.

@@ -1,6 +1,6 @@
 # Contribuir no Boopay
 
-O [README](README.md) ensina o fluxo pelo terminal. Para cada issue: leia a RFC,
+O [README](README.md) ensina o fluxo pelo terminal. Para cada issue: leia o manual,
 crie uma branch curta, implemente, valide e abra um PR. Não envie trabalho
 diretamente à main. Não integre seu PR sem revisão de outra pessoa.
 
@@ -19,7 +19,7 @@ Não versione .env, bancos locais, credenciais nem dados reais.
 ## Revisão
 
 1. Abra o PR com base e branch corretas.
-2. Vincule issue, RFC e documento de entrega.
+2. Vincule issue, manual e documento de entrega.
 3. Registre comandos, resultado, limites e riscos.
 4. Use Draft enquanto faltar implementação ou evidência obrigatória.
 5. Solicite revisão de Pedro Lucas ou do responsável pela dependência.
@@ -39,6 +39,6 @@ integrantes permanece uma validação humana pendente.
 
 ## Planejamento e qualidade compartilhada
 
-Consulte a [visão](docs/visao-produto.md), o [acordo](docs/acordo-trabalho.md), a [DoD](docs/definition-of-done.md) e a [sprint vigente](docs/sprints/README.md). Preserve o código RB e o número real da issue; reutilize as tarefas existentes. Atualize o vínculo de história/RFC/sprint quando houver decisão de escopo. O [registro de IA](docs/uso-ia.md) informa apoio, correções e revisão humana.
+Consulte a [visão](docs/visao-produto.md), o [acordo](docs/acordo-trabalho.md), a [DoD](docs/definition-of-done.md) e a [sprint vigente](docs/sprints/README.md). Preserve o código RB e o número real da issue; reutilize as tarefas existentes. Atualize o vínculo de história/manual/sprint quando houver decisão de escopo. O [registro de IA](docs/uso-ia.md) informa apoio, correções e revisão humana.
 
 Para alterações somente documentais, execute `npm run check:docs` e `git diff --check`; confira títulos, responsáveis, datas, links e correspondência com as issues. Para código, execute também as verificações pertinentes ao componente e registre ambiente/limites. Não declarar proteção de branch, aprovação ou validação externa sem conferência.

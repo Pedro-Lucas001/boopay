@@ -5,6 +5,7 @@
 ## Identificação
 - Autor: [nome]
 - Issue: [link da issue]
+- Manual: [docs/manuais/RB-XXX.md]
 - Revisor: [responsável indicado na tarefa]
 - PR: [link, quando disponível]
 - Data da versão: [AAAA-MM-DD]

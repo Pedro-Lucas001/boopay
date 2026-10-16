@@ -2,11 +2,12 @@
 
 | Data | Ferramenta | Apoio realizado | Conferência e limite |
 | --- | --- | --- | --- |
-| 14/10/2026 | ChatGPT/Codex | Análise do material Workshop Scrum — Sprint 0; organização de visão, DoD, acordo, histórias, sprints e sincronização de RFCs | Conteúdo confrontado com decisões de Thiago, issues e arquivos do repositório; revisão humana do PR ainda pendente |
+| 14/10/2026 | ChatGPT/Codex | Análise do material Workshop Scrum — Sprint 0; organização de visão, DoD, acordo, histórias, sprints e sincronização documental | Conteúdo confrontado com decisões de Thiago, issues e arquivos do repositório; revisão humana do PR ainda pendente |
+| 16/10/2026 | ChatGPT/Codex | Conversão das 85 RFCs em manuais específicos por tarefa e preparação das instruções diretamente nas issues, a pedido de Thiago | Roteiros confrontados com a main e 85 issues; critérios, histórico e links conferidos. Caminhos futuros identificados como propostos; validação documental não comprova execução das tarefas. Revisão humana do PR pendente |
 
 ## Sugestões aplicadas, adaptadas ou adiadas
 - **Aplicadas como documentação para revisão:** visão/objetivo, DoD compartilhada, acordo, registros curtos de sprint e ligação de histórias/habilitadores às tarefas existentes.
-- **Corrigidas:** referências que mantinham multiloja/CDP/multitoque fora do MVP após a inclusão por Thiago; atribuições de Alex e metas semanais nas RFCs/índice.
+- **Corrigidas:** referências que mantinham multiloja/CDP/multitoque fora do MVP após a inclusão por Thiago; atribuições de Alex e metas semanais nos manuais/índice.
 - **Adaptadas:** preservar as 85 issues e as colunas existentes; organizar 10 histórias e 3 habilitadores sem duplicar tarefas. Usar histórias como agrupamento de valor, não rebatizar toda tarefa técnica como US.
 - **Adiada:** implementação do importador; backlog já cadastrado. O JSON de planejamento é um registro rastreável, sem rotina de escrita no GitHub. O modelo JSON do material tem um colchete excedente e não deve ser executado sem correção/validação.
 - **Não assumidas:** capacidade, disponibilidade, aprovação coletiva, papel formal de PO, evidência externa, publicação oficial ou regra obrigatória de visibilidade. Registrar as respostas reais quando obtidas.
