@@ -15,12 +15,12 @@ Entrega final: **04/11/2026**; versão integrada, testes, documentação e pacot
 
 | Período | Meta | Quadro |
 | --- | --- | --- |
-| 14–20/10 | Fundação integrada e base multiloja — 40 tarefas, incluindo 22 do plugin em revisão | [S1](https://github.com/users/Pedro-Lucas001/projects/2/views/8) |
+| 14–20/10 | Fundação integrada e base multiloja — 40 tarefas, incluindo 22 do plugin; consulte o quadro para o andamento atual | [S1](https://github.com/users/Pedro-Lucas001/projects/2/views/8) |
 | 21–27/10 | Compra conversacional em sandbox — 20 tarefas | [S2](https://github.com/users/Pedro-Lucas001/projects/2/views/9) |
 | 28/10–03/11 | Produto completo, CDP, multitoque, QA, documentos e pacote — 21 tarefas | [S3](https://github.com/users/Pedro-Lucas001/projects/2/views/10) |
 | 04/11 | Submissão/comprovante e contribuições — 2 tarefas | [Entrega](https://github.com/users/Pedro-Lucas001/projects/2/views/11) |
 
-Cada integrante confirma sua disponibilidade na planning. Uma história descreve necessidade/benefício; task descreve trabalho; RFC registra proposta/decisão técnica; critério de aceite verifica a tarefa/história; DoD define qualidade comum. O JSON em `docs/planejamento/backlog.json` registra o mapa, sem criar ou importar issues automaticamente.
+Cada integrante confirma sua disponibilidade na planning. Uma história descreve necessidade/benefício; task descreve trabalho; manual ensina a executar a task e entregar o PR; critério de aceite verifica a tarefa/história; DoD define qualidade comum. O JSON em `docs/planejamento/backlog.json` registra o mapa, sem criar ou importar issues automaticamente.
 
 ## Acessos do time
 
@@ -31,7 +31,7 @@ Entrega WooCommerce: comece pelo [índice do plugin](docs/entregas/INDICE-PLUGIN
 - [Backlog futuro](https://github.com/users/Pedro-Lucas001/projects/2/views/7)
 - [Issues — tarefas e critérios de aceite](https://github.com/Pedro-Lucas001/boopay/issues)
 - [Pull requests — entregas em revisão](https://github.com/Pedro-Lucas001/boopay/pulls)
-- [RFCs — uma proposta por issue, com abordagem e validação](docs/rfcs/README.md)
+- [Manuais — passo a passo específico de cada issue até o PR](docs/manuais/README.md)
 - [Modelo de documentação da entrega](docs/entregas/MODELO.md)
 - [Modelo de pull request](.github/PULL_REQUEST_TEMPLATE.md)
 
@@ -45,11 +45,13 @@ Cada integrante escreve a documentação da própria entrega. Pedro Lucas, Conce
 
 **Rotina:** issue → branch → trabalho e documentação → commit → push → PR → revisão → integração e validação → Done.
 
-## Antes de implementar — leia a RFC da issue
+## Antes de implementar — siga o manual da issue
 
-Cada uma das 85 issues RB-001 a RB-085 tem uma proposta em `docs/rfcs/RB-XXX.md`. Encontre a sua no [índice de RFCs](docs/rfcs/README.md). Confira a abordagem, os critérios, as dependências e o plano de validação. Registre dúvidas na issue e combine a revisão das decisões com o revisor.
+Cada uma das 85 tarefas tem um [manual de execução](docs/manuais/README.md). O próprio corpo da issue contém o roteiro: resultado, dependências, arquivos existentes/propostos, passos, validação, critérios e comandos de branch/PR. Abra seu card no quadro e comece por ele.
 
-Confira o status registrado em cada RFC: algumas propostas já têm decisão de escopo atualizada, com a abordagem técnica ainda aguardando revisão. Aprovar uma RFC não significa concluir a implementação. Atualize a decisão no documento, execute a tarefa e anexe evidências reais antes de mover o card para Done. Para um PR que só altera a proposta, use `Refs #NUMERO`; reserve `Closes #NUMERO` para o PR que cumpre integralmente o aceite.
+Os manuais substituem as antigas RFCs como guia diário. Não é necessário preencher uma proposta genérica antes de começar; registre decisões relevantes e resultados na documentação da sua execução. Se o contrato ou escopo precisar mudar, combine e registre na issue/manual antes de implementar.
+
+Uma tarefa já encerrada serve como referência e não precisa ser refeita. Manual publicado não comprova implementação. Use `Refs #NUMERO` para parcial/documentação e `Closes #NUMERO` somente para entrega integral, com revisão. Os caminhos antigos em `docs/rfcs/` continuam funcionando.
 
 ## Antes da primeira tarefa — faça uma única vez
 

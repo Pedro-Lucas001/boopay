@@ -12,7 +12,7 @@ Plano registrado em 14/10/2026, baseado nas metas do Project. Produto e pacote p
 ## Uso
 
 1. Abra o plano da semana e confirme objetivo, capacidade, responsáveis e dependências.
-2. Use a issue como registro operacional e a RFC como proposta/decisão técnica; não duplicar o quadro em atas diárias.
+2. Use a issue como registro operacional e o manual como roteiro de execução e entrega do PR; não duplicar o quadro em atas diárias.
 3. Ao terminar a semana, registre incremento demonstrado, feedback e uma melhoria da retrospectiva.
 4. Atualize os documentos e o Project quando houver decisão real de replanejamento.
 

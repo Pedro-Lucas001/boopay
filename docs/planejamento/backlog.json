@@ -170,7 +170,8 @@
       "assignees": [
         "ThiagoVenturaV"
       ],
-      "grupo": "US-01"
+      "grupo": "US-01",
+      "manual": "docs/manuais/RB-001.md"
     },
     {
       "number": 2,
@@ -180,7 +181,8 @@
       "assignees": [
         "ThiagoVenturaV"
       ],
-      "grupo": "US-01"
+      "grupo": "US-01",
+      "manual": "docs/manuais/RB-002.md"
     },
     {
       "number": 58,
@@ -190,7 +192,8 @@
       "assignees": [
         "mluisacarvalho"
       ],
-      "grupo": "US-01"
+      "grupo": "US-01",
+      "manual": "docs/manuais/RB-003.md"
     },
     {
       "number": 22,
@@ -198,7 +201,8 @@
       "code": "RB-004",
       "sprint": "1",
       "assignees": [],
-      "grupo": "US-01"
+      "grupo": "US-01",
+      "manual": "docs/manuais/RB-004.md"
     },
     {
       "number": 36,
@@ -208,7 +212,8 @@
       "assignees": [
         "Pedro-Lucas001"
       ],
-      "grupo": "US-01"
+      "grupo": "US-01",
+      "manual": "docs/manuais/RB-005.md"
     },
     {
       "number": 47,
@@ -218,7 +223,8 @@
       "assignees": [
         "cesab-ino"
       ],
-      "grupo": "US-01"
+      "grupo": "US-01",
+      "manual": "docs/manuais/RB-006.md"
     },
     {
       "number": 59,
@@ -228,7 +234,8 @@
       "assignees": [
         "mluisacarvalho"
       ],
-      "grupo": "US-01"
+      "grupo": "US-01",
+      "manual": "docs/manuais/RB-007.md"
     },
     {
       "number": 23,
@@ -236,7 +243,8 @@
       "code": "RB-008",
       "sprint": "1",
       "assignees": [],
-      "grupo": "US-01"
+      "grupo": "US-01",
+      "manual": "docs/manuais/RB-008.md"
     },
     {
       "number": 68,
@@ -244,7 +252,8 @@
       "code": "RB-009",
       "sprint": "1",
       "assignees": [],
-      "grupo": "US-01"
+      "grupo": "US-01",
+      "manual": "docs/manuais/RB-009.md"
     },
     {
       "number": 77,
@@ -252,7 +261,8 @@
       "code": "RB-010",
       "sprint": "1",
       "assignees": [],
-      "grupo": "US-01"
+      "grupo": "US-01",
+      "manual": "docs/manuais/RB-010.md"
     },
     {
       "number": 3,
@@ -262,7 +272,8 @@
       "assignees": [
         "ThiagoVenturaV"
       ],
-      "grupo": "US-01"
+      "grupo": "US-01",
+      "manual": "docs/manuais/RB-011.md"
     },
     {
       "number": 24,
@@ -270,7 +281,8 @@
       "code": "RB-012",
       "sprint": "1",
       "assignees": [],
-      "grupo": "US-01"
+      "grupo": "US-01",
+      "manual": "docs/manuais/RB-012.md"
     },
     {
       "number": 4,
@@ -280,7 +292,8 @@
       "assignees": [
         "ThiagoVenturaV"
       ],
-      "grupo": "US-01"
+      "grupo": "US-01",
+      "manual": "docs/manuais/RB-013.md"
     },
     {
       "number": 25,
@@ -288,7 +301,8 @@
       "code": "RB-014",
       "sprint": "1",
       "assignees": [],
-      "grupo": "US-01"
+      "grupo": "US-01",
+      "manual": "docs/manuais/RB-014.md"
     },
     {
       "number": 37,
@@ -298,7 +312,8 @@
       "assignees": [
         "Pedro-Lucas001"
       ],
-      "grupo": "US-01"
+      "grupo": "US-01",
+      "manual": "docs/manuais/RB-015.md"
     },
     {
       "number": 48,
@@ -308,7 +323,8 @@
       "assignees": [
         "cesab-ino"
       ],
-      "grupo": "US-01"
+      "grupo": "US-01",
+      "manual": "docs/manuais/RB-016.md"
     },
     {
       "number": 26,
@@ -316,7 +332,8 @@
       "code": "RB-017",
       "sprint": "1",
       "assignees": [],
-      "grupo": "US-01"
+      "grupo": "US-01",
+      "manual": "docs/manuais/RB-017.md"
     },
     {
       "number": 78,
@@ -324,7 +341,8 @@
       "code": "RB-018",
       "sprint": "1",
       "assignees": [],
-      "grupo": "US-01"
+      "grupo": "US-01",
+      "manual": "docs/manuais/RB-018.md"
     },
     {
       "number": 60,
@@ -334,7 +352,8 @@
       "assignees": [
         "mluisacarvalho"
       ],
-      "grupo": "US-01"
+      "grupo": "US-01",
+      "manual": "docs/manuais/RB-019.md"
     },
     {
       "number": 5,
@@ -344,7 +363,8 @@
       "assignees": [
         "ThiagoVenturaV"
       ],
-      "grupo": "US-01"
+      "grupo": "US-01",
+      "manual": "docs/manuais/RB-020.md"
     },
     {
       "number": 49,
@@ -354,7 +374,8 @@
       "assignees": [
         "cesab-ino"
       ],
-      "grupo": "US-01"
+      "grupo": "US-01",
+      "manual": "docs/manuais/RB-021.md"
     },
     {
       "number": 6,
@@ -364,7 +385,8 @@
       "assignees": [
         "ThiagoVenturaV"
       ],
-      "grupo": "US-01"
+      "grupo": "US-01",
+      "manual": "docs/manuais/RB-022.md"
     },
     {
       "number": 7,
@@ -374,7 +396,8 @@
       "assignees": [
         "ThiagoVenturaV"
       ],
-      "grupo": "HAB-01"
+      "grupo": "HAB-01",
+      "manual": "docs/manuais/RB-023.md"
     },
     {
       "number": 50,
@@ -384,7 +407,8 @@
       "assignees": [
         "cesab-ino"
       ],
-      "grupo": "HAB-01"
+      "grupo": "HAB-01",
+      "manual": "docs/manuais/RB-024.md"
     },
     {
       "number": 38,
@@ -394,7 +418,8 @@
       "assignees": [
         "Pedro-Lucas001"
       ],
-      "grupo": "HAB-01"
+      "grupo": "HAB-01",
+      "manual": "docs/manuais/RB-025.md"
     },
     {
       "number": 61,
@@ -404,7 +429,8 @@
       "assignees": [
         "mluisacarvalho"
       ],
-      "grupo": "HAB-01"
+      "grupo": "HAB-01",
+      "manual": "docs/manuais/RB-026.md"
     },
     {
       "number": 51,
@@ -414,7 +440,8 @@
       "assignees": [
         "cesab-ino"
       ],
-      "grupo": "HAB-01"
+      "grupo": "HAB-01",
+      "manual": "docs/manuais/RB-027.md"
     },
     {
       "number": 39,
@@ -425,7 +452,8 @@
         "AlexLeandro00"
       ],
       "atribuicao_nativa_pendente": true,
-      "grupo": "HAB-01"
+      "grupo": "HAB-01",
+      "manual": "docs/manuais/RB-028.md"
     },
     {
       "number": 69,
@@ -433,7 +461,8 @@
       "code": "RB-029",
       "sprint": "1",
       "assignees": [],
-      "grupo": "US-02"
+      "grupo": "US-02",
+      "manual": "docs/manuais/RB-029.md"
     },
     {
       "number": 79,
@@ -441,7 +470,8 @@
       "code": "RB-030",
       "sprint": "1",
       "assignees": [],
-      "grupo": "US-02"
+      "grupo": "US-02",
+      "manual": "docs/manuais/RB-030.md"
     },
     {
       "number": 70,
@@ -449,7 +479,8 @@
       "code": "RB-031",
       "sprint": "1",
       "assignees": [],
-      "grupo": "US-02"
+      "grupo": "US-02",
+      "manual": "docs/manuais/RB-031.md"
     },
     {
       "number": 40,
@@ -459,7 +490,8 @@
       "assignees": [
         "Pedro-Lucas001"
       ],
-      "grupo": "HAB-01"
+      "grupo": "HAB-01",
+      "manual": "docs/manuais/RB-032.md"
     },
     {
       "number": 62,
@@ -469,7 +501,8 @@
       "assignees": [
         "mluisacarvalho"
       ],
-      "grupo": "HAB-01"
+      "grupo": "HAB-01",
+      "manual": "docs/manuais/RB-033.md"
     },
     {
       "number": 27,
@@ -480,7 +513,8 @@
         "AlexLeandro00"
       ],
       "atribuicao_nativa_pendente": true,
-      "grupo": "HAB-01"
+      "grupo": "HAB-01",
+      "manual": "docs/manuais/RB-034.md"
     },
     {
       "number": 28,
@@ -491,7 +525,8 @@
         "AlexLeandro00"
       ],
       "atribuicao_nativa_pendente": true,
-      "grupo": "US-03"
+      "grupo": "US-03",
+      "manual": "docs/manuais/RB-035.md"
     },
     {
       "number": 8,
@@ -502,7 +537,8 @@
         "AlexLeandro00"
       ],
       "atribuicao_nativa_pendente": true,
-      "grupo": "US-03"
+      "grupo": "US-03",
+      "manual": "docs/manuais/RB-036.md"
     },
     {
       "number": 29,
@@ -510,7 +546,8 @@
       "code": "RB-037",
       "sprint": "2",
       "assignees": [],
-      "grupo": "US-03"
+      "grupo": "US-03",
+      "manual": "docs/manuais/RB-037.md"
     },
     {
       "number": 9,
@@ -520,7 +557,8 @@
       "assignees": [
         "ThiagoVenturaV"
       ],
-      "grupo": "US-03"
+      "grupo": "US-03",
+      "manual": "docs/manuais/RB-038.md"
     },
     {
       "number": 41,
@@ -530,7 +568,8 @@
       "assignees": [
         "Pedro-Lucas001"
       ],
-      "grupo": "US-04"
+      "grupo": "US-04",
+      "manual": "docs/manuais/RB-039.md"
     },
     {
       "number": 52,
@@ -540,7 +579,8 @@
       "assignees": [
         "cesab-ino"
       ],
-      "grupo": "US-04"
+      "grupo": "US-04",
+      "manual": "docs/manuais/RB-040.md"
     },
     {
       "number": 71,
@@ -548,7 +588,8 @@
       "code": "RB-041",
       "sprint": "2",
       "assignees": [],
-      "grupo": "US-04"
+      "grupo": "US-04",
+      "manual": "docs/manuais/RB-041.md"
     },
     {
       "number": 10,
@@ -558,7 +599,8 @@
       "assignees": [
         "ThiagoVenturaV"
       ],
-      "grupo": "US-05"
+      "grupo": "US-05",
+      "manual": "docs/manuais/RB-042.md"
     },
     {
       "number": 30,
@@ -566,7 +608,8 @@
       "code": "RB-043",
       "sprint": "2",
       "assignees": [],
-      "grupo": "US-05"
+      "grupo": "US-05",
+      "manual": "docs/manuais/RB-043.md"
     },
     {
       "number": 42,
@@ -576,7 +619,8 @@
       "assignees": [
         "Pedro-Lucas001"
       ],
-      "grupo": "US-05"
+      "grupo": "US-05",
+      "manual": "docs/manuais/RB-044.md"
     },
     {
       "number": 11,
@@ -586,7 +630,8 @@
       "assignees": [
         "ThiagoVenturaV"
       ],
-      "grupo": "US-05"
+      "grupo": "US-05",
+      "manual": "docs/manuais/RB-045.md"
     },
     {
       "number": 31,
@@ -594,7 +639,8 @@
       "code": "RB-046",
       "sprint": "1",
       "assignees": [],
-      "grupo": "US-06"
+      "grupo": "US-06",
+      "manual": "docs/manuais/RB-046.md"
     },
     {
       "number": 12,
@@ -604,7 +650,8 @@
       "assignees": [
         "ThiagoVenturaV"
       ],
-      "grupo": "US-06"
+      "grupo": "US-06",
+      "manual": "docs/manuais/RB-047.md"
     },
     {
       "number": 32,
@@ -612,7 +659,8 @@
       "code": "RB-048",
       "sprint": "2",
       "assignees": [],
-      "grupo": "US-06"
+      "grupo": "US-06",
+      "manual": "docs/manuais/RB-048.md"
     },
     {
       "number": 80,
@@ -620,7 +668,8 @@
       "code": "RB-049",
       "sprint": "2",
       "assignees": [],
-      "grupo": "US-06"
+      "grupo": "US-06",
+      "manual": "docs/manuais/RB-049.md"
     },
     {
       "number": 33,
@@ -628,7 +677,8 @@
       "code": "RB-050",
       "sprint": "2",
       "assignees": [],
-      "grupo": "US-06"
+      "grupo": "US-06",
+      "manual": "docs/manuais/RB-050.md"
     },
     {
       "number": 81,
@@ -636,7 +686,8 @@
       "code": "RB-051",
       "sprint": "2",
       "assignees": [],
-      "grupo": "US-06"
+      "grupo": "US-06",
+      "manual": "docs/manuais/RB-051.md"
     },
     {
       "number": 53,
@@ -646,7 +697,8 @@
       "assignees": [
         "cesab-ino"
       ],
-      "grupo": "US-06"
+      "grupo": "US-06",
+      "manual": "docs/manuais/RB-052.md"
     },
     {
       "number": 13,
@@ -656,7 +708,8 @@
       "assignees": [
         "ThiagoVenturaV"
       ],
-      "grupo": "US-07"
+      "grupo": "US-07",
+      "manual": "docs/manuais/RB-053.md"
     },
     {
       "number": 34,
@@ -664,7 +717,8 @@
       "code": "RB-054",
       "sprint": "2",
       "assignees": [],
-      "grupo": "US-07"
+      "grupo": "US-07",
+      "manual": "docs/manuais/RB-054.md"
     },
     {
       "number": 43,
@@ -674,7 +728,8 @@
       "assignees": [
         "Pedro-Lucas001"
       ],
-      "grupo": "US-07"
+      "grupo": "US-07",
+      "manual": "docs/manuais/RB-055.md"
     },
     {
       "number": 72,
@@ -682,7 +737,8 @@
       "code": "RB-056",
       "sprint": "2",
       "assignees": [],
-      "grupo": "US-07"
+      "grupo": "US-07",
+      "manual": "docs/manuais/RB-056.md"
     },
     {
       "number": 63,
@@ -692,7 +748,8 @@
       "assignees": [
         "mluisacarvalho"
       ],
-      "grupo": "US-08"
+      "grupo": "US-08",
+      "manual": "docs/manuais/RB-057.md"
     },
     {
       "number": 44,
@@ -702,7 +759,8 @@
       "assignees": [
         "Pedro-Lucas001"
       ],
-      "grupo": "US-08"
+      "grupo": "US-08",
+      "manual": "docs/manuais/RB-058.md"
     },
     {
       "number": 54,
@@ -712,7 +770,8 @@
       "assignees": [
         "cesab-ino"
       ],
-      "grupo": "US-08"
+      "grupo": "US-08",
+      "manual": "docs/manuais/RB-059.md"
     },
     {
       "number": 73,
@@ -720,7 +779,8 @@
       "code": "RB-060",
       "sprint": "3",
       "assignees": [],
-      "grupo": "US-08"
+      "grupo": "US-08",
+      "manual": "docs/manuais/RB-060.md"
     },
     {
       "number": 82,
@@ -728,7 +788,8 @@
       "code": "RB-061",
       "sprint": "3",
       "assignees": [],
-      "grupo": "US-08"
+      "grupo": "US-08",
+      "manual": "docs/manuais/RB-061.md"
     },
     {
       "number": 74,
@@ -736,7 +797,8 @@
       "code": "RB-062",
       "sprint": "3",
       "assignees": [],
-      "grupo": "US-08"
+      "grupo": "US-08",
+      "manual": "docs/manuais/RB-062.md"
     },
     {
       "number": 83,
@@ -744,7 +806,8 @@
       "code": "RB-063",
       "sprint": "3",
       "assignees": [],
-      "grupo": "US-08"
+      "grupo": "US-08",
+      "manual": "docs/manuais/RB-063.md"
     },
     {
       "number": 75,
@@ -752,7 +815,8 @@
       "code": "RB-064",
       "sprint": "3",
       "assignees": [],
-      "grupo": "US-08"
+      "grupo": "US-08",
+      "manual": "docs/manuais/RB-064.md"
     },
     {
       "number": 84,
@@ -760,7 +824,8 @@
       "code": "RB-065",
       "sprint": "3",
       "assignees": [],
-      "grupo": "US-08"
+      "grupo": "US-08",
+      "manual": "docs/manuais/RB-065.md"
     },
     {
       "number": 14,
@@ -770,7 +835,8 @@
       "assignees": [
         "ThiagoVenturaV"
       ],
-      "grupo": "HAB-02"
+      "grupo": "HAB-02",
+      "manual": "docs/manuais/RB-066.md"
     },
     {
       "number": 35,
@@ -781,7 +847,8 @@
         "AlexLeandro00"
       ],
       "atribuicao_nativa_pendente": true,
-      "grupo": "HAB-02"
+      "grupo": "HAB-02",
+      "manual": "docs/manuais/RB-067.md"
     },
     {
       "number": 15,
@@ -791,7 +858,8 @@
       "assignees": [
         "ThiagoVenturaV"
       ],
-      "grupo": "HAB-02"
+      "grupo": "HAB-02",
+      "manual": "docs/manuais/RB-068.md"
     },
     {
       "number": 76,
@@ -799,7 +867,8 @@
       "code": "RB-069",
       "sprint": "3",
       "assignees": [],
-      "grupo": "HAB-02"
+      "grupo": "HAB-02",
+      "manual": "docs/manuais/RB-069.md"
     },
     {
       "number": 45,
@@ -809,7 +878,8 @@
       "assignees": [
         "Pedro-Lucas001"
       ],
-      "grupo": "HAB-03"
+      "grupo": "HAB-03",
+      "manual": "docs/manuais/RB-070.md"
     },
     {
       "number": 55,
@@ -819,7 +889,8 @@
       "assignees": [
         "cesab-ino"
       ],
-      "grupo": "HAB-03"
+      "grupo": "HAB-03",
+      "manual": "docs/manuais/RB-071.md"
     },
     {
       "number": 64,
@@ -829,7 +900,8 @@
       "assignees": [
         "mluisacarvalho"
       ],
-      "grupo": "HAB-03"
+      "grupo": "HAB-03",
+      "manual": "docs/manuais/RB-072.md"
     },
     {
       "number": 65,
@@ -839,7 +911,8 @@
       "assignees": [
         "mluisacarvalho"
       ],
-      "grupo": "HAB-03"
+      "grupo": "HAB-03",
+      "manual": "docs/manuais/RB-073.md"
     },
     {
       "number": 85,
@@ -847,7 +920,8 @@
       "code": "RB-074",
       "sprint": "3",
       "assignees": [],
-      "grupo": "HAB-03"
+      "grupo": "HAB-03",
+      "manual": "docs/manuais/RB-074.md"
     },
     {
       "number": 16,
@@ -857,7 +931,8 @@
       "assignees": [
         "ThiagoVenturaV"
       ],
-      "grupo": "HAB-03"
+      "grupo": "HAB-03",
+      "manual": "docs/manuais/RB-075.md"
     },
     {
       "number": 56,
@@ -867,7 +942,8 @@
       "assignees": [
         "cesab-ino"
       ],
-      "grupo": "HAB-03"
+      "grupo": "HAB-03",
+      "manual": "docs/manuais/RB-076.md"
     },
     {
       "number": 17,
@@ -877,7 +953,8 @@
       "assignees": [
         "ThiagoVenturaV"
       ],
-      "grupo": "HAB-03"
+      "grupo": "HAB-03",
+      "manual": "docs/manuais/RB-077.md"
     },
     {
       "number": 46,
@@ -887,7 +964,8 @@
       "assignees": [
         "Pedro-Lucas001"
       ],
-      "grupo": "HAB-03"
+      "grupo": "HAB-03",
+      "manual": "docs/manuais/RB-078.md"
     },
     {
       "number": 18,
@@ -897,7 +975,8 @@
       "assignees": [
         "ThiagoVenturaV"
       ],
-      "grupo": "HAB-03"
+      "grupo": "HAB-03",
+      "manual": "docs/manuais/RB-079.md"
     },
     {
       "number": 66,
@@ -907,7 +986,8 @@
       "assignees": [
         "mluisacarvalho"
       ],
-      "grupo": "HAB-03"
+      "grupo": "HAB-03",
+      "manual": "docs/manuais/RB-080.md"
     },
     {
       "number": 19,
@@ -917,7 +997,8 @@
       "assignees": [
         "ThiagoVenturaV"
       ],
-      "grupo": "US-02"
+      "grupo": "US-02",
+      "manual": "docs/manuais/RB-081.md"
     },
     {
       "number": 20,
@@ -927,7 +1008,8 @@
       "assignees": [
         "ThiagoVenturaV"
       ],
-      "grupo": "US-09"
+      "grupo": "US-09",
+      "manual": "docs/manuais/RB-082.md"
     },
     {
       "number": 57,
@@ -937,7 +1019,8 @@
       "assignees": [
         "cesab-ino"
       ],
-      "grupo": "US-08"
+      "grupo": "US-08",
+      "manual": "docs/manuais/RB-083.md"
     },
     {
       "number": 67,
@@ -947,7 +1030,8 @@
       "assignees": [
         "mluisacarvalho"
       ],
-      "grupo": "US-08"
+      "grupo": "US-08",
+      "manual": "docs/manuais/RB-084.md"
     },
     {
       "number": 21,
@@ -957,7 +1041,8 @@
       "assignees": [
         "ThiagoVenturaV"
       ],
-      "grupo": "US-10"
+      "grupo": "US-10",
+      "manual": "docs/manuais/RB-085.md"
     }
   ]
 }

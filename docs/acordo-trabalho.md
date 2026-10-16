@@ -25,7 +25,7 @@ Product Owner ordena o Product Backlog e responde pelo objetivo do produto; Scru
 - Atualizar o card ao iniciar, pedir revisão e concluir. Ao encerrar um período de trabalho, registrar próximo passo e impedimentos relevantes; não exigir atas de Daily.
 - Uma implementação ativa por pessoa como ponto de partida. Priorizar o que destrava colegas; um segundo item depende de capacidade e acordo registrado.
 - Solicitar revisão com entrega conferível. Alvo operacional: primeira resposta em até 24 h, ajustável à disponibilidade confirmada. Bloqueio relevante deve ser registrado assim que identificado, com tentativa feita e ajuda necessária.
-- Alteração de escopo atualiza issue, RFC e meta. O plano de execução é adaptado pelo time; prazo publicado não comprova capacidade ou aceite.
+- Alteração de escopo atualiza issue, manual e meta. O plano de execução é adaptado pelo time; prazo publicado não comprova capacidade ou aceite.
 - Branch → trabalho e documentação → verificações pertinentes → PR → revisão por outra pessoa → integração/validação → Done. Não aprovar o próprio PR nem registrar aceite fictício.
 
 ## Disponibilidade e acessos a confirmar

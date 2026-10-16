@@ -5,7 +5,7 @@
 - Relação: Refs #[número real]
 - História/habilitador: [US-XX ou HAB-XX do backlog]
 - Sprint/meta: [S1, S2, S3, entrega ou futuro]
-- RFC/decisão: [link e decisão pertinente]
+- Manual de execução/decisões: [link e decisão pertinente]
 
 <!-- Troque Refs por Closes somente se este PR entregar todo o escopo da issue. O número da issue pode ser diferente do código RB. -->
 
