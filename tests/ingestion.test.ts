@@ -49,8 +49,10 @@ test('catálogo transacional: ordem, tombstone, variações, concorrência, tena
     assert.equal((await sync(batch([{ ...product, source_id: 3 }, { ...product, source_id: 4, price: '-1' }]))).statusCode, 400);
     assert.equal(await db.catalogItem.count({ where: { sourceId: 3 } }), 0);
     assert.equal(await db.catalogReceipt.count(), count);
-    const second = await credentials.exchange((await credentials.issueCode('tenant-b', merchant.id, 'https://other.example')).code, 'https://other.example');
-    assert.equal((await sync(batch([product]), second)).statusCode, 200);
+    const secondMerchant = await db.merchant.create({ data: { nome: 'Outra loja', razao_social: 'Fixture',
+      email: 'other@example.invalid', consumer_key: 'fixture', consumer_secretHash: 'fixture' } });
+    const second = await credentials.exchange((await credentials.issueCode('tenant-b', secondMerchant.id, 'https://other.example')).code, 'https://other.example');
+    assert.equal((await sync({ ...batch([product]), merchant_id: secondMerchant.id }, second)).statusCode, 200);
     assert.equal(await db.catalogItem.count(), 2);
     const event = { version: 1, event_id: randomUUID(), kind: 'view', session_hash: 'a'.repeat(64),
       product_id: 1, occurred_at: new Date().toISOString(), consent: true };

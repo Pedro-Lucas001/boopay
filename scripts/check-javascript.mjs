@@ -5,7 +5,7 @@ function walk(path) {
   return readdirSync(path, { withFileTypes: true }).flatMap(entry =>
     entry.isDirectory() ? walk(join(path, entry.name)) : [join(path, entry.name)]);
 }
-const files = ['scripts', 'tests', 'integrations', 'plugin'].flatMap(path => {
+const files = ['src', 'scripts', 'tests', 'integrations', 'plugin'].flatMap(path => {
   try { return walk(path); } catch (error) { if (error.code === 'ENOENT') return []; throw error; }
 }).filter(path => /\.(mjs|cjs|js)$/.test(path));
 for (const file of files) {

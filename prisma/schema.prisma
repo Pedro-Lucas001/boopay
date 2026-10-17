@@ -10,6 +10,7 @@ datasource db {
 
 model Merchant {
   id                    Int       @id @default(autoincrement())
+  tenantId              String?
   nome                  String
   razao_social          String
   email                 String    @unique
@@ -22,6 +23,27 @@ model Merchant {
   produtos              Product[]
   connectionCodes       ConnectionCode[]
   integrations          Integration[]
+  operatorGrants        OperatorGrant[]
+  @@index([tenantId])
+}
+
+model Operator {
+  id          String @id @default(uuid())
+  displayName String
+  tokenHash   String @unique
+  revokedAt   DateTime?
+  createdAt   DateTime @default(now())
+  grants      OperatorGrant[]
+}
+
+model OperatorGrant {
+  operatorId String
+  merchantId Int
+  role       String
+  operator   Operator @relation(fields: [operatorId], references: [id], onDelete: Cascade)
+  merchant   Merchant @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+  @@id([operatorId, merchantId])
+  @@index([merchantId])
 }
 
 model ConnectionCode {
@@ -61,7 +83,7 @@ model ReplayNonce {
 
 model Product {
   id               Int       @id @default(autoincrement())
-  sku_woocommerce  String    @unique
+  sku_woocommerce  String
   nome             String
   descricao        String?
   preco            Decimal
@@ -73,6 +95,7 @@ model Product {
 
   merchant_id      Int
   merchant         Merchant  @relation(fields: [merchant_id], references: [id])
+  @@unique([merchant_id, sku_woocommerce])
 }
 
 // Product é legado. Novos envios usam integração + ID WooCommerce.

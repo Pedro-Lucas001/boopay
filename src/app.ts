@@ -5,6 +5,8 @@ import { boopayRoutes } from './http/routes';
 import { connectionRoutes } from './http/connection-routes';
 import { AccessError, CredentialService } from './security/credentials';
 import { verifySignedRequest } from './security/signed-request';
+import { TenantAccess } from './security/tenant-context';
+import { operatorRoutes } from './http/operator-routes';
 
 export function buildApp(options: { db: PrismaClient; credentialKey: string; adminToken: string; logger?: boolean; logStream?: { write(message: string): void }; now?: () => Date }) {
   const app = Fastify({
@@ -12,6 +14,7 @@ export function buildApp(options: { db: PrismaClient; credentialKey: string; adm
     bodyLimit: 1024 * 1024
   });
   const credentials = new CredentialService(options.db, options.credentialKey, options.now);
+  const tenantAccess = new TenantAccess(options.db, options.now);
   app.removeContentTypeParser('application/json');
   const parseJson = app.getDefaultJsonParser('error', 'error');
   app.addContentTypeParser('application/json', { parseAs: 'buffer' }, (request, body, done) => {
@@ -32,6 +35,7 @@ export function buildApp(options: { db: PrismaClient; credentialKey: string; adm
     return reply.code(500).send({ error: 'internal_error' });
   });
   connectionRoutes(app, credentials, options.adminToken);
+  operatorRoutes(app, credentials, tenantAccess, options.adminToken);
   app.register(boopayRoutes, { db: options.db });
-  return { app, credentials };
+  return { app, credentials, tenantAccess };
 }
