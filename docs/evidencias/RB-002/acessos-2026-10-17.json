@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-17",
+  "repository": "Pedro-Lucas001/boopay",
+  "source": "GitHub REST collaborators and branches/main/protection; authenticated as ThiagoVenturaV",
+  "collaboratorsWithPushObserved": ["Pedro-Lucas001", "ThiagoVenturaV", "mluisacarvalho", "sqeno", "cesab-ino", "r0b14"],
+  "confirmedAccountsNotInRead": ["AlexLeandro00", "Meruria-desu"],
+  "leticiaAccount": "não confirmado; não inferir identidade de r0b14",
+  "branchProtectionRead": {"httpStatus": 404, "conclusion": "não confirmado; não distingue ausência de regra de limitação de acesso"},
+  "permissionsChanged": false,
+  "allMembersReproducedContribution": false,
+  "pending": "Pedro confere convites/permissões e integrantes demonstram o fluxo; não é aceite coletivo."
+}
