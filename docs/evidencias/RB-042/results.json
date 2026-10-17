@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-17",
+  "codeBaseCommit": "e694a0b9dbdd293e0b4659ac0a4aaecf6efb1b82",
+  "environment": "Windows local autorizado; Node 24.18.0; PHP 8.3.35; provedores IA doubles",
+  "command": "npm run check",
+  "exitCode": 0,
+  "typescript": "passed",
+  "javascriptFiles": 8,
+  "phpGroups": 6,
+  "documents": 116,
+  "nodeTests": {"passed": 17, "failed": 0, "skipped": 0, "aiTests": 11, "regressionTests": 6},
+  "externalProvidersCalled": false,
+  "paymentExecuted": false,
+  "scope": "Contratos, timeout/cancelamento, autorização de ferramentas e regressão local; não demonstra GPT/Gemini reais ou homologação."
+}
