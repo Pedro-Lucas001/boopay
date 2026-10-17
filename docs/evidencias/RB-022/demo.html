@@ -1,0 +1,54 @@
+<!doctype html><html lang="pt-BR"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Demonstração WooCommerce · Boopay</title><style>
+body{font:16px/1.5 system-ui,sans-serif;color:#18212a;background:#f4f6f8;margin:0}main{max-width:1000px;margin:auto;padding:32px 20px}h1{line-height:1.15}p{max-width:75ch}dt{font-weight:650;margin-top:12px}dd{margin:0;overflow-wrap:anywhere}table{border-collapse:collapse;width:100%;background:white}th,td{text-align:left;padding:12px;border-bottom:1px solid #ccd4dc}th{background:#e8edf2}figure{margin:24px 0}img{display:block;max-width:100%;height:auto}figcaption{margin-top:8px}a{color:#145e96}code{overflow-wrap:anywhere}
+</style><main><h1>Boopay · demonstração do plugin WooCommerce</h1>
+<p>Plano B offline com resultados executados e capturas reais de QA. Ambiente local descartável e dados sintéticos. Este relatório não comprova ensaio humano, apresentação ao mentor, hospedagem ou pagamento.</p>
+<dl><dt>QA executada</dt><dd>2026-10-17T23:52:02+00:00</dd><dt>Base de código</dt><dd><code>328db3b87673221a5edc954d98f1dccf8f6efaa9</code></dd>
+<dt>Versões</dt><dd>WordPress 6.8.3 · WooCommerce 10.2.2 · PHP 8.3.35 · SQLite adapter (not MySQL qualification)</dd>
+<dt>ZIP SHA256</dt><dd><code>f4f4d330180ba23d79849c01b0ffadfba4441104374c37ea93fa7fd0c38d1c29</code></dd><dt>Resultados</dt><dd>44 verificações passaram · 3 eventos recebidos · 1 integração(ões) revogada(s)</dd>
+<dt>Falha controlada</dt><dd>Timeout observado: 10.01 segundos. Cenários de retry/recuperação estão na tabela.</dd></dl>
+<p><a href="wordpress.json">Relatório original da execução</a> · <a href="demo-manifest.json">Manifesto da demonstração</a></p>
+<h2>Verificações executadas</h2><table><thead><tr><th scope="col">Cenário</th><th scope="col">Resultado</th></tr></thead><tbody><tr><td>ZIP aberto pelo instalador PHP</td><td>Passou</td></tr>
+<tr><td>Plugin instalado e ativado sem fatal</td><td>Passou</td></tr>
+<tr><td>Administrador pode configurar</td><td>Passou</td></tr>
+<tr><td>Tracking desligado por padrão</td><td>Passou</td></tr>
+<tr><td>Pareamento HTTPS real com CA verificada</td><td>Passou</td></tr>
+<tr><td>Código temporário não persistido</td><td>Passou</td></tr>
+<tr><td>Tela administrativa sem segredos</td><td>Passou</td></tr>
+<tr><td>Usuário sem capacidade não recebe tela</td><td>Passou</td></tr>
+<tr><td>Loja vazia encerra com sucesso</td><td>Passou</td></tr>
+<tr><td>Simples e variável recebidos na API por hooks reais</td><td>Passou</td></tr>
+<tr><td>Preço e estoque alterados</td><td>Passou</td></tr>
+<tr><td>Imagem HTTPS preservada no snapshot</td><td>Passou</td></tr>
+<tr><td>Remoção da última variação gera snapshot vazio</td><td>Passou</td></tr>
+<tr><td>Exclusão incremental recebida</td><td>Passou</td></tr>
+<tr><td>Catálogo com 22 produtos paginado pelo runner real</td><td>Passou</td></tr>
+<tr><td>Todas as páginas recebidas sem duplicação</td><td>Passou</td></tr>
+<tr><td>Sem consentimento não há evento</td><td>Passou</td></tr>
+<tr><td>Tracking habilitado ainda exige consentimento</td><td>Passou</td></tr>
+<tr><td>Consentimento exige origem e nonce válidos</td><td>Passou</td></tr>
+<tr><td>Consentimento explícito aceito pela rota WordPress</td><td>Passou</td></tr>
+<tr><td>Origem externa recusada</td><td>Passou</td></tr>
+<tr><td>Evento consentido enfileirado</td><td>Passou</td></tr>
+<tr><td>Saúde consulta evento persistido sem edição do banco</td><td>Passou</td></tr>
+<tr><td>Configuração JS preserva consentimento booleano</td><td>Passou</td></tr>
+<tr><td>Configuração JS preserva ID de produto numérico</td><td>Passou</td></tr>
+<tr><td>Adição real ao carrinho gera hook consentido</td><td>Passou</td></tr>
+<tr><td>add_to_cart recebido na API</td><td>Passou</td></tr>
+<tr><td>exit_intent consentido enfileirado</td><td>Passou</td></tr>
+<tr><td>exit_intent recebido na API</td><td>Passou</td></tr>
+<tr><td>Revogação interrompe novos eventos</td><td>Passou</td></tr>
+<tr><td>Timeout real de dez segundos encerra transporte</td><td>Passou</td></tr>
+<tr><td>Falha temporária agenda retentativa</td><td>Passou</td></tr>
+<tr><td>Retentativa inspecionável no Action Scheduler</td><td>Passou</td></tr>
+<tr><td>Limite de cinco tentativas</td><td>Passou</td></tr>
+<tr><td>Diagnóstico não expõe erro remoto</td><td>Passou</td></tr>
+<tr><td>Repetição manual recupera fila</td><td>Passou</td></tr>
+<tr><td>400 permanente não entra em loop</td><td>Passou</td></tr>
+<tr><td>HPOS habilitado no ambiente</td><td>Passou</td></tr>
+<tr><td>Desconexão revoga credencial pela API</td><td>Passou</td></tr>
+<tr><td>Desconexão apaga credenciais/jobs</td><td>Passou</td></tr>
+<tr><td>Nenhum novo envio após desconexão</td><td>Passou</td></tr>
+<tr><td>Desativação segura</td><td>Passou</td></tr>
+<tr><td>Desinstalação remove configurações</td><td>Passou</td></tr>
+<tr><td>WooCommerce ausente: aviso sem fatal em processo separado</td><td>Passou</td></tr></tbody></table></main></html>

@@ -1,5 +1,5 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync, unlinkSync } from 'node:fs';
-import { resolve, join } from 'node:path';
+import { resolve, join, dirname } from 'node:path';
 import { execFile, execFileSync } from 'node:child_process';
 import { promisify } from 'node:util';
 import { createServer } from 'node:https';
@@ -37,7 +37,8 @@ async function main() {
     const merchant=await db.merchant.create({data:{nome:'QA',razao_social:'Sintética',email:'qa@example.invalid',consumer_key:'unused',consumer_secretHash:'unused'}});
     const code=await credentials.issueCode('qa-tenant',merchant.id,'https://store.example');
     mkdirSync('docs/evidencias/WORDPRESS',{recursive:true});
-    const report=resolve('docs/evidencias/WORDPRESS/results.json');
+    const report=resolve(process.env.BOOPAY_QA_REPORT || 'docs/evidencias/WORDPRESS/results.json');
+    mkdirSync(dirname(report), { recursive: true });
     const result=await promisify(execFile)(php,[...args,resolve('scripts/qa-wordpress.php')],{timeout:180000,maxBuffer:1024*1024,
       env:{...process.env,BOOPAY_QA_CODE:code.code,BOOPAY_QA_ZIP:resolve('dist/boopay-0.1.0.zip'),BOOPAY_QA_REPORT:report}});
     console.log(result.stdout); if(result.stderr)console.error(result.stderr);
