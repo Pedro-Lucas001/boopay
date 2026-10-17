@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lojas · Boopay</title><link rel="stylesheet" href="/operator/assets/style.css">
+<script src="/operator/assets/client.js" defer></script></head>
+<body><main>
+<header><span class="brand">boopay</span><h1>Suas lojas</h1><p>Selecione uma loja para consultar seu catálogo e a conexão.</p></header>
+<form id="login"><label for="token">Credencial de operador</label><p id="token-help">Use a credencial fornecida pelo administrador. Ela permanece apenas nesta sessão.</p>
+<div class="login-row"><input id="token" type="password" autocomplete="off" required maxlength="4096" aria-describedby="token-help"><button id="connect">Acessar lojas</button></div></form>
+<p id="status" role="status" aria-live="polite"></p>
+<section id="workspace" hidden aria-label="Consulta da loja">
+<div class="controls"><div><label for="store">Loja selecionada</label><select id="store"></select></div><button id="refresh" type="button">Atualizar</button><button id="logout" type="button" class="secondary">Sair</button></div>
+<p id="summary"></p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Tabela de produtos, com rolagem horizontal em telas estreitas"><table><caption>Catálogo da loja selecionada · até 20 produtos</caption><thead><tr><th scope="col">Produto</th><th scope="col">ID de origem</th><th scope="col">Preço na loja</th><th scope="col">Disponibilidade</th></tr></thead><tbody id="products"></tbody></table></div>
+<p id="empty" hidden>Nenhum produto sincronizado nesta loja. Confira a conexão e sincronize pelo plugin.</p>
+</section>
+</main></body></html>

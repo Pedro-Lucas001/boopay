@@ -34,13 +34,27 @@ export class CredentialService {
     return Buffer.concat([cipher.update(body), cipher.final()]).toString('utf8');
   }
   async issueCode(tenantId: string, merchantId: number, storeUrl: string) {
-    if (!await this.db.merchant.findUnique({ where: { id: merchantId } }))
-      throw new AccessError(404, 'merchant_not_found');
+    if (!tenantId || tenantId.length > 100 || tenantId.trim() !== tenantId)
+      throw new AccessError(400, 'invalid_tenant');
     const code = randomBytes(32).toString('base64url');
     const expiresAt = new Date(this.now().getTime() + 5 * 60_000);
-    await this.db.connectionCode.create({ data: {
-      codeHash: hashToken(code), tenantId, merchantId, storeUrl: normalizeStoreUrl(storeUrl), expiresAt
-    } });
+    const normalizedUrl = normalizeStoreUrl(storeUrl);
+    await this.db.$transaction(async tx => {
+      const merchant = await tx.merchant.findUnique({ where: { id: merchantId } });
+      if (!merchant) throw new AccessError(404, 'merchant_not_found');
+      if (merchant.tenantId && merchant.tenantId !== tenantId)
+        throw new AccessError(403, 'merchant_tenant_mismatch');
+      if (!merchant.tenantId) {
+        const conflicting = await tx.integration.count({ where: { merchantId, tenantId: { not: tenantId } } }) +
+          await tx.connectionCode.count({ where: { merchantId, tenantId: { not: tenantId } } });
+        if (conflicting) throw new AccessError(403, 'merchant_tenant_mismatch');
+        const bound = await tx.merchant.updateMany({ where: { id: merchantId, tenantId: null }, data: { tenantId } });
+        if (bound.count !== 1) throw new AccessError(403, 'merchant_tenant_mismatch');
+      }
+      await tx.connectionCode.create({ data: {
+        codeHash: hashToken(code), tenantId, merchantId, storeUrl: normalizedUrl, expiresAt
+      } });
+    });
     return { code, expires_at: expiresAt.toISOString() };
   }
   async exchange(code: string, storeUrl: string) {
@@ -50,6 +64,9 @@ export class CredentialService {
       const record = await tx.connectionCode.findUnique({ where: { codeHash: hashToken(code) } });
       if (!record || record.storeUrl !== store || record.usedAt || record.expiresAt <= now)
         throw new AccessError(401, 'invalid_connection_code');
+      const merchant = await tx.merchant.findUnique({ where: { id: record.merchantId } });
+      if (!merchant?.tenantId || merchant.tenantId !== record.tenantId)
+        throw new AccessError(403, 'merchant_tenant_mismatch');
       const changed = await tx.connectionCode.updateMany({
         where: { id: record.id, usedAt: null, expiresAt: { gt: now } }, data: { usedAt: now }
       });
@@ -64,8 +81,10 @@ export class CredentialService {
   }
   async authenticate(token: string) {
     if (!/^[A-Za-z0-9_-]{43}$/.test(token)) throw new AccessError(401, 'invalid_credentials');
-    const integration = await this.db.integration.findUnique({ where: { tokenHash: hashToken(token) } });
+    const integration = await this.db.integration.findUnique({ where: { tokenHash: hashToken(token) }, include: { merchant: true } });
     if (!integration || integration.revokedAt) throw new AccessError(401, 'invalid_credentials');
+    if (!integration.merchant.tenantId || integration.merchant.tenantId !== integration.tenantId)
+      throw new AccessError(403, 'merchant_tenant_mismatch');
     return integration;
   }
   async revoke(token: string) {
