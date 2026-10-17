@@ -1,0 +1,17 @@
+{
+  "builtAt": "2026-10-17T23:52:16.100Z",
+  "codeBaseCommit": "328db3b87673221a5edc954d98f1dccf8f6efaa9",
+  "qaExecutedAt": "2026-10-17T23:52:02+00:00",
+  "environment": "WordPress descartável local / dados sintéticos",
+  "wordpress": "6.8.3",
+  "woocommerce": "10.2.2",
+  "php": "8.3.35",
+  "database": "SQLite adapter (not MySQL qualification)",
+  "passedChecks": 44,
+  "zipSha256": "f4f4d330180ba23d79849c01b0ffadfba4441104374c37ea93fa7fd0c38d1c29",
+  "backendEvents": 3,
+  "revokedIntegrations": 1,
+  "timeoutSeconds": 10.01,
+  "humanRehearsal": false,
+  "mentorSubmission": false
+}

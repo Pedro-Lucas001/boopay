@@ -16,7 +16,7 @@ Use este índice junto ao quadro `label:m1-woocommerce`. Responsáveis originais
 | RB-014 #25, RB-015 #37, RB-017 #26, RB-018 #78 | [Plugin](./PLUGIN-WOOCOMMERCE.md) | Hooks, páginas, retries e consentimento; [log](../evidencias/PLUGIN/check.log) |
 | RB-020 #5 | [QA](./RB-020.md) | [Resultado WordPress](../evidencias/WORDPRESS/results.json), [backend](../evidencias/RB-020/backend-local.json) |
 | RB-021 #49 | [Instalação e pacote](./AMBIENTE-PLUGIN.md) | ZIP/manifesto no artefato da CI; reprodução humana pendente |
-| RB-022 #6 | [Demonstração](./RB-022.md) | Roteiro + resultados reproduzíveis; gravação/ensaio humanos pendentes |
+| RB-022 #6 | [Demonstração](./RB-022.md) | 44 verificações WordPress + plano B offline; revisão/ensaio humano pendentes |
 
 ## Ordem de revisão
 
