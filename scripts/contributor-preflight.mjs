@@ -15,7 +15,7 @@ const checks = [
   { id: 'commit_name', passed: !!git('config', '--get', 'user.name'), action: 'Configure git config user.name com seu nome.' },
   { id: 'commit_email', passed: !!git('config', '--get', 'user.email'), action: 'Configure git config user.email com seu email verificado ou noreply.' },
   { id: 'task_branch', passed: !!branch && branch !== 'main' && branch !== 'master',
-    action: 'Crie/seleciona a branch da sua tarefa pelo tutorial; não envie trabalho diretamente à main.' }
+    action: 'Crie ou selecione a branch da sua tarefa pelo tutorial; não envie trabalho diretamente à main.' }
 ];
 const pending = git('status', '--porcelain');
 console.log(JSON.stringify({ scope: 'Preflight local; não testa login, permissão de push, revisão ou proteção de main.',

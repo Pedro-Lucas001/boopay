@@ -42,3 +42,7 @@ integrantes permanece uma validação humana pendente.
 Consulte a [visão](docs/visao-produto.md), o [acordo](docs/acordo-trabalho.md), a [DoD](docs/definition-of-done.md) e a [sprint vigente](docs/sprints/README.md). Preserve o código RB e o número real da issue; reutilize as tarefas existentes. Atualize o vínculo de história/RFC/sprint quando houver decisão de escopo. O [registro de IA](docs/uso-ia.md) informa apoio, correções e revisão humana.
 
 Para alterações somente documentais, execute `npm run check:docs` e `git diff --check`; confira títulos, responsáveis, datas, links e correspondência com as issues. Para código, execute também as verificações pertinentes ao componente e registre ambiente/limites. Não declarar proteção de branch, aprovação ou validação externa sem conferência.
+
+## Conferência local antes do trabalho
+
+Na branch da sua tarefa, execute `npm run contrib:check`. O diagnóstico confere repositório/remoto, autoria configurada e uso de branch própria, sem mostrar email ou alterar configuração. Se faltar algo, siga a próxima ação indicada e o tutorial do README. Passar no diagnóstico não comprova login/permissão de push, revisão ou proteção da main: esses acessos devem ser conferidos no GitHub.
