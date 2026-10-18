@@ -9,6 +9,7 @@ export async function boopayRoutes(app: FastifyInstance, options: { db: PrismaCl
   app.get('/health', async () => ({ status: 'ok', api: 'Boopay API' }));
   app.post('/v1/admin/catalog/sync', async request => {
     const input = syncCatalogSchema.parse(request.body), integration = request.boopayIntegration!;
+    request.log.info({ correlationId: input.event_id }, 'catalog_sync_received');
     if (integration.merchantId !== input.merchant_id) throw new AccessError(403, 'merchant_mismatch');
     const hash = createHash('sha256').update(request.boopayRawBody!).digest('hex');
     for (let attempt = 0; ; attempt++) {
@@ -42,6 +43,7 @@ export async function boopayRoutes(app: FastifyInstance, options: { db: PrismaCl
   });
   app.post('/v1/events', async request => {
     const input = storeEventSchema.parse(request.body), integrationId = request.boopayIntegration!.id;
+    request.log.info({ correlationId: input.event_id }, 'store_event_received');
     const payloadHash = createHash('sha256').update(request.boopayRawBody!).digest('hex');
     const key = { integrationId, eventId: input.event_id };
     try {

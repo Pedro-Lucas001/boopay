@@ -5,7 +5,7 @@ import { AccessError, CredentialService, equalSecret, hashToken } from './creden
 import { bearer } from '../http/connection-routes';
 
 declare module 'fastify' {
-  interface FastifyRequest { boopayRawBody?: Buffer; boopayIntegration?: Integration }
+  interface FastifyRequest { boopayRawBody?: Buffer; boopayIntegration?: Integration; boopayStartedAt?: bigint }
 }
 export function signatureInput(method: string, path: string, timestamp: string, nonce: string, body: Buffer) {
   return ['v1', method.toUpperCase(), path, timestamp, nonce, createHash('sha256').update(body).digest('hex')].join('\n');
