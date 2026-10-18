@@ -1,0 +1,58 @@
+
+> boopay-api@1.0.0 check
+> npm run build && npm run check:js && npm run check:php && npm run check:docs && npm test
+
+
+> boopay-api@1.0.0 build
+> tsc --noEmit
+
+
+> boopay-api@1.0.0 check:js
+> node scripts/check-javascript.mjs
+
+JavaScript: 8 arquivos verificados.
+
+> boopay-api@1.0.0 check:php
+> node scripts/check-php.mjs
+
+No syntax errors detected in integrations\woocommerce\class-boopay-signed-http-client.php
+No syntax errors detected in plugin\boopay\boopay.php
+No syntax errors detected in plugin\boopay\includes\class-boopay-catalog.php
+No syntax errors detected in plugin\boopay\includes\class-boopay-plugin.php
+No syntax errors detected in plugin\boopay\includes\class-boopay-signed-http-client.php
+No syntax errors detected in plugin\boopay\includes\class-boopay-tracking.php
+No syntax errors detected in plugin\boopay\uninstall.php
+No syntax errors detected in tests\php-client.test.php
+No syntax errors detected in tests\php-signature.php
+PASS: destinos não permitidos rejeitados antes do transporte
+PASS: timeout, redirects e TLS
+PASS: assinatura do corpo exato
+PASS: nonce novo por tentativa
+PASS: erro de transporte sem vazamento
+PASS: erro HTTP sem corpo remoto
+6 grupos de verificações PHP passaram; funções WordPress substituídas, sem instalação real.
+
+> boopay-api@1.0.0 check:docs
+> node scripts/check-docs.mjs
+
+Documentação: 115 arquivos, links relativos válidos.
+
+> boopay-api@1.0.0 test
+> tsx --test tests/*.test.ts
+
+✔ contrato versionado aceita simples, variável e vazio e rejeita PII e números inválidos (18.3938ms)
+✔ conexão: expiração, vínculo, uso único concorrente, persistência e revogação (8094.5889ms)
+✔ catálogo transacional: ordem, tombstone, variações, concorrência, tenants e eventos (10635.6273ms)
+✔ logs de request não registram tokens, assinatura ou código do corpo (288.0388ms)
+✔ request IDs are generated, returned and redacted when caller supplies one (269.0592ms)
+✔ operational metrics require the server admin token and expose bounded route data (28.1437ms)
+✔ assinatura PHP e Node usam o mesmo vetor de bytes (75.6714ms)
+✔ HTTP assinado: autenticação, corpo/tempo/vínculo, replay e isolamento de SKU (8809.0295ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11341.3589
