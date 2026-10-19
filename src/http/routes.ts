@@ -5,6 +5,7 @@ import { Prisma, PrismaClient } from '@prisma/client';
 import { AccessError } from '../security/credentials';
 import { operationalRoutes } from './operational-routes';
 import { timelineRoutes } from './timeline-routes';
+import { embeddingsRoutes } from './embeddings-routes';
 
 export async function boopayRoutes(app: FastifyInstance, options: { db: PrismaClient }) {
   const db = options.db;
@@ -115,4 +116,7 @@ export async function boopayRoutes(app: FastifyInstance, options: { db: PrismaCl
 
   // [RB-032] Registo das rotas de projeção de perfil e linha do tempo
   await app.register(timelineRoutes, { db });
+
+  // [RB-044] Registo das rotas de embeddings e recuperação inteligente de catálogo
+  await app.register(embeddingsRoutes, { db });
 }
