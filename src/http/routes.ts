@@ -64,4 +64,42 @@ export async function boopayRoutes(app: FastifyInstance, options: { db: PrismaCl
     ]);
     return { status: 'connected', integration_id: id, catalog_count: catalogCount, last_event: lastEvent };
   });
+  // [RB-028] API de Listagem de Catálogo
+  app.get('/v1/catalog/products', async (request, reply) => {
+    try {
+      const products = await db.product.findMany({
+        where: { status: 'ativo' },
+        take: 50,
+      });
+
+      return {
+        status: 'success',
+        count: products.length,
+        data: products,
+      };
+    } catch (error) {
+      reply.status(500);
+      return { status: 'error', message: 'Falha ao recuperar o catálogo.' };
+    }
+  });
+
+  // [RB-028] API de Métricas do Sistema
+  app.get('/v1/admin/metrics', async (request, reply) => {
+    try {
+      const totalProducts = await db.product.count();
+      const activeProducts = await db.product.count({ where: { status: 'ativo' } });
+
+      return {
+        status: 'success',
+        metrics: {
+          totalProducts,
+          activeProducts,
+          timestamp: new Date().toISOString(),
+        },
+      };
+    } catch (error) {
+      reply.status(500);
+      return { status: 'error', message: 'Falha ao calcular métricas operacionais.' };
+    }
+  });
 }
