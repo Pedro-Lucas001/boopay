@@ -3,10 +3,15 @@ import { FastifyInstance } from 'fastify';
 import { syncCatalogSchema, storeEventSchema } from './catalog-contract';
 import { Prisma, PrismaClient } from '@prisma/client';
 import { AccessError } from '../security/credentials';
+import { operationalRoutes } from './operational-routes';
+import { timelineRoutes } from './timeline-routes';
+import { embeddingsRoutes } from './embeddings-routes';
 
 export async function boopayRoutes(app: FastifyInstance, options: { db: PrismaClient }) {
   const db = options.db;
+  
   app.get('/health', async () => ({ status: 'ok', api: 'Boopay API' }));
+  
   app.post('/v1/admin/catalog/sync', async request => {
     const input = syncCatalogSchema.parse(request.body), integration = request.boopayIntegration!;
     if (integration.merchantId !== input.merchant_id) throw new AccessError(403, 'merchant_mismatch');
@@ -40,6 +45,7 @@ export async function boopayRoutes(app: FastifyInstance, options: { db: PrismaCl
       }
     }
   });
+
   app.post('/v1/events', async request => {
     const input = storeEventSchema.parse(request.body), integrationId = request.boopayIntegration!.id;
     const payloadHash = createHash('sha256').update(request.boopayRawBody!).digest('hex');
@@ -55,6 +61,7 @@ export async function boopayRoutes(app: FastifyInstance, options: { db: PrismaCl
       return { status: 'accepted', duplicate: true };
     }
   });
+
   app.post('/v1/integrations/health', async request => {
     const id = request.boopayIntegration!.id;
     const [catalogCount, lastEvent] = await Promise.all([
@@ -64,4 +71,52 @@ export async function boopayRoutes(app: FastifyInstance, options: { db: PrismaCl
     ]);
     return { status: 'connected', integration_id: id, catalog_count: catalogCount, last_event: lastEvent };
   });
+
+  // [RB-028] API de Listagem de Catálogo
+  app.get('/v1/catalog/products', async (request, reply) => {
+    try {
+      const products = await db.product.findMany({
+        where: { status: 'ativo' },
+        take: 50,
+      });
+
+      return {
+        status: 'success',
+        count: products.length,
+        data: products,
+      };
+    } catch (error) {
+      reply.status(500);
+      return { status: 'error', message: 'Falha ao recuperar o catálogo.' };
+    }
+  });
+
+  // [RB-028] API de Métricas do Sistema
+  app.get('/v1/admin/metrics', async (request, reply) => {
+    try {
+      const totalProducts = await db.product.count();
+      const activeProducts = await db.product.count({ where: { status: 'ativo' } });
+
+      return {
+        status: 'success',
+        metrics: {
+          totalProducts,
+          activeProducts,
+          timestamp: new Date().toISOString(),
+        },
+      };
+    } catch (error) {
+      reply.status(500);
+      return { status: 'error', message: 'Falha ao calcular métricas operacionais.' };
+    }
+  });
+
+  // [RB-025] Registo das rotas operacionais do Firestore
+  await app.register(operationalRoutes);
+
+  // [RB-032] Registo das rotas de projeção de perfil e linha do tempo
+  await app.register(timelineRoutes, { db });
+
+  // [RB-044] Registo das rotas de embeddings e recuperação inteligente de catálogo
+  await app.register(embeddingsRoutes, { db });
 }
