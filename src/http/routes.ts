@@ -3,10 +3,13 @@ import { FastifyInstance } from 'fastify';
 import { syncCatalogSchema, storeEventSchema } from './catalog-contract';
 import { Prisma, PrismaClient } from '@prisma/client';
 import { AccessError } from '../security/credentials';
+import { operationalRoutes } from './operational-routes';
 
 export async function boopayRoutes(app: FastifyInstance, options: { db: PrismaClient }) {
   const db = options.db;
+  
   app.get('/health', async () => ({ status: 'ok', api: 'Boopay API' }));
+  
   app.post('/v1/admin/catalog/sync', async request => {
     const input = syncCatalogSchema.parse(request.body), integration = request.boopayIntegration!;
     if (integration.merchantId !== input.merchant_id) throw new AccessError(403, 'merchant_mismatch');
@@ -40,6 +43,7 @@ export async function boopayRoutes(app: FastifyInstance, options: { db: PrismaCl
       }
     }
   });
+
   app.post('/v1/events', async request => {
     const input = storeEventSchema.parse(request.body), integrationId = request.boopayIntegration!.id;
     const payloadHash = createHash('sha256').update(request.boopayRawBody!).digest('hex');
@@ -55,6 +59,7 @@ export async function boopayRoutes(app: FastifyInstance, options: { db: PrismaCl
       return { status: 'accepted', duplicate: true };
     }
   });
+
   app.post('/v1/integrations/health', async request => {
     const id = request.boopayIntegration!.id;
     const [catalogCount, lastEvent] = await Promise.all([
@@ -64,6 +69,7 @@ export async function boopayRoutes(app: FastifyInstance, options: { db: PrismaCl
     ]);
     return { status: 'connected', integration_id: id, catalog_count: catalogCount, last_event: lastEvent };
   });
+
   // [RB-028] API de Listagem de Catálogo
   app.get('/v1/catalog/products', async (request, reply) => {
     try {
@@ -102,4 +108,7 @@ export async function boopayRoutes(app: FastifyInstance, options: { db: PrismaCl
       return { status: 'error', message: 'Falha ao calcular métricas operacionais.' };
     }
   });
+
+  // [RB-025] Registo das rotas operacionais do Firestore
+  await app.register(operationalRoutes);
 }
