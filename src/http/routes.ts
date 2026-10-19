@@ -4,6 +4,7 @@ import { syncCatalogSchema, storeEventSchema } from './catalog-contract';
 import { Prisma, PrismaClient } from '@prisma/client';
 import { AccessError } from '../security/credentials';
 import { operationalRoutes } from './operational-routes';
+import { timelineRoutes } from './timeline-routes';
 
 export async function boopayRoutes(app: FastifyInstance, options: { db: PrismaClient }) {
   const db = options.db;
@@ -111,4 +112,7 @@ export async function boopayRoutes(app: FastifyInstance, options: { db: PrismaCl
 
   // [RB-025] Registo das rotas operacionais do Firestore
   await app.register(operationalRoutes);
+
+  // [RB-032] Registo das rotas de projeção de perfil e linha do tempo
+  await app.register(timelineRoutes, { db });
 }
